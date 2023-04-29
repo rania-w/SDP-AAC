@@ -1,35 +1,38 @@
 // ignore_for_file: prefer_const_constructors, override_on_non_overriding_member, unused_import, use_key_in_widget_constructors
 
 import 'package:aac/category.dart';
+import 'package:aac/word.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
-import 'customCard.dart';
+import 'custom_card.dart';
 
 void main() => runApp(MaterialApp(
-      home: Home(),
+      home: CategoriesPage(),
     ));
 
-class Home extends StatefulWidget {
+class CategoriesPage extends StatefulWidget {
   @override
-  State<Home> createState() => _HomeState();
+  State<CategoriesPage> createState() => _CategoriesPageState();
 }
 
-class _HomeState extends State<Home> {
-  int counter = 0;
+class _CategoriesPageState extends State<CategoriesPage> {
+  /// hardcoded
   List<Category> categories = [
     Category(
         image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
-        title: "family"),
+        title: "family",
+        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")]),
     Category(
         image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
-        title: "favorites"),
+        title: "favorites",
+        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")]),
     Category(
         image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
-        title: "food")
+        title: "food",
+        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")])
   ];
 
-  //one object -- widget -- to return instead of container
-  // the object will be comprised of the image and the title of the cateogry
+  /// the logic of the object and its appearance are (re: should be) seperate files
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +42,13 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.pink,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20),
-        //check how this looks on a phone
+        padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+        //check how this looks on a phone - dreadful, better on tablet
         child: ResponsiveGridList(
-            desiredItemWidth: 200,
+            desiredItemWidth: 180,
             squareCells: true,
-            minSpacing: 30,
+            minSpacing: 20,
             children: categories.map((i) {
-              //figure out a single card widget
               return CustomCard(
                 title: i.title,
                 imageAsset: i.image,
@@ -54,11 +56,7 @@ class _HomeState extends State<Home> {
             }).toList()),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            counter++;
-          });
-        },
+        onPressed: () {},
         backgroundColor: Colors.pink,
         child: Icon(Icons.add),
       ),

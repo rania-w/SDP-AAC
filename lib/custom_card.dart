@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// doesnt look great, doesnt look terrible
+
 class CustomCard extends StatelessWidget {
   final String title;
   final String imageAsset;
@@ -16,19 +18,18 @@ class CustomCard extends StatelessWidget {
                     ? Colors.yellow[400]
                     : Colors.yellow[300])),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              padding: const EdgeInsets.fromLTRB(15, 30, 15, 7.5),
-              width: 150,
-              height: 150,
-              // child: i.image,
+              margin: const EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: Image.asset(imageAsset),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 15),
+              margin: const EdgeInsets.only(bottom: 5, top: 5),
               child: Text(
                 title,
                 style: const TextStyle(color: Colors.black),
+                textAlign: TextAlign.center,
               ),
             )
           ],
