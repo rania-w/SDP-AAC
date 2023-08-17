@@ -80,6 +80,8 @@ flutter:
     - family: Poppins
       fonts:
         - asset: resources/fonts/Poppins/Poppins-Black.ttf
+        - asset: resources/fonts/Poppins/Poppins-Light.ttf
+        - asset: resources/fonts/Poppins/Poppins-Medium.ttf
         
   
   # For details regarding fonts from package dependencies,

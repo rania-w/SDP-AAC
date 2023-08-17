@@ -22,7 +22,7 @@ class CustomCard extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-              child: Image.asset(imageAsset),
+              child: Image.asset(imageAsset, width: 52, height: 52,),
             ),
             Container(
               margin: const EdgeInsets.only(bottom: 5, top: 5),

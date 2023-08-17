@@ -35,7 +35,7 @@ class RowCard extends StatelessWidget {
                 child: Text(
                   title,
                   style: TextStyle(
-                      fontFamily: 'Poppins-ExtraLight',
+                      fontFamily: 'Poppins-Light',
                       fontSize: 16,
                       color: Color(0xFF393E41)),
                 ),
