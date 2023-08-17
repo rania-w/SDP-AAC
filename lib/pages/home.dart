@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
 import 'package:responsive_grid/responsive_grid.dart';
-import 'package:aac/custom_card.dart';
+import 'package:aac/components/cards/custom_card.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
