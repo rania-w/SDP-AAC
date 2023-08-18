@@ -11,8 +11,8 @@ class CustomButton extends StatelessWidget {
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith((states) =>
                 states.contains(MaterialState.pressed)
-                    ? Color(0xffc1ccac)
-                    : Color(0xff9ead7f))),
+                    ? Color(0xff9ead7f)
+                    : Color(0xffc1ccac))),
         onPressed: () {},
         child: Padding(
           padding: EdgeInsets.fromLTRB(20,10,20,10),
