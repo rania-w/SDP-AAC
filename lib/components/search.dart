@@ -13,7 +13,7 @@ class _SearchState extends State<Search> {
     return SearchBar(
       hintText: "Kategorija ili riječ",
       hintStyle: MaterialStateProperty.all(TextStyle(
-          color: Color(0xFF8E9999), fontFamily: 'Poppins-Light')),
+          color: Color(0xFF8E9999), fontFamily: 'Light')),
       trailing: [
         IconButton(
           icon: const Icon(Icons.search),

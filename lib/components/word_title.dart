@@ -16,7 +16,7 @@ class WordTitle extends StatelessWidget {
             title,
             style: TextStyle(
                 fontSize: 24,
-                fontFamily: 'Poppins-Medium',
+                fontFamily: 'Medium',
                 color: Color(0xFF393E41)),
           ),
           IconButton(onPressed: () {}, icon: Icon(Icons.star_border_outlined))

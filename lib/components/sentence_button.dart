@@ -14,7 +14,7 @@ class SentenceButton extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
           child: Text(
             sentence,
-            style: TextStyle(fontFamily: 'Poppins-Medium', fontSize: 20, color: Color(0xFF393E41)),
+            style: TextStyle(fontFamily: 'Medium', fontSize: 20, color: Color(0xFF393E41)),
           )),
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.resolveWith((states) =>

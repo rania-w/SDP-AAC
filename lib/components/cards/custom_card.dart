@@ -28,7 +28,7 @@ class CustomCard extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 5, top: 5),
               child: Text(
                 title,
-                style: const TextStyle(color: Colors.black),
+                style: const TextStyle(color: Color(0xFF393E41), fontFamily: 'Light'),
                 textAlign: TextAlign.center,
               ),
             )

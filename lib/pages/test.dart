@@ -27,9 +27,9 @@ class _TestState extends State<Test> {
             child: Column(
               children: [
                 CustomButton(text: "custom button"),
-                CustomCard(title: "custom card", imageAsset: 'resources/images/pedro.jpg'),
-                ImageCard(imageAsset: 'resources/images/pedro.jpg'),
-                RowCard(title: "row card", imageAsset: 'resources/images/pedro.jpg'),
+                CustomCard(title: "custom card", imageAsset: 'lib/resources/images/frog.jpeg'),
+                ImageCard(imageAsset: 'lib/resources/images/frog.jpeg'),
+                RowCard(title: "row card", imageAsset: 'lib/resources/images/frog.jpeg'),
                 Search(),
                 SentenceButton(sentence: "sentence"),
                 WordTitle(title: "title")
