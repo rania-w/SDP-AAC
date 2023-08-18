@@ -26,12 +26,6 @@ class _TestState extends State<Test> {
             padding: EdgeInsets.all(20),
             child: Column(
               children: [
-                CustomButton(text: "custom button"),
-                CustomCard(title: "custom card", imageAsset: 'lib/resources/images/frog.jpeg'),
-                ImageCard(imageAsset: 'lib/resources/images/frog.jpeg'),
-                RowCard(title: "row card", imageAsset: 'lib/resources/images/frog.jpeg'),
-                Search(),
-                SentenceButton(sentence: "sentence"),
                 WordTitle(title: "title")
               ],
             )));
