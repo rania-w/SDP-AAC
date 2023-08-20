@@ -1,18 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/components/custom_button.dart';
+import 'package:aac/components/layouts/base_layout.dart';
 import 'package:aac/components/sentence_button.dart';
 import 'package:aac/objects/sentence.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/components/word_title.dart';
-import 'package:aac/objects/word.dart';
-
-///
-/// treba margina dodat
-/// treba ovaj title fixat ovo nista ne valja
-///   nek se scusne malo
-///
+// import 'package:aac/objects/word.dart';
 
 class DetailedItemView extends StatefulWidget {
   // final Word word;
@@ -35,43 +28,21 @@ class _DetailedItemViewState extends State<DetailedItemView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("AAC"),
-        backgroundColor: Color(0xFFFFECEC),
-      ),
-      body: Column(
+    return BaseLayout(
+      child: Column(
         children: [
-          WordTitle(
+          const WordTitle(
             title: "Frog", // povuci od word
           ),
-          ImageCard(imageAsset: 'lib/resources/images/frog.jpeg'), //povuci od word
+          const ImageCard(imageAsset: 'lib/resources/images/clu.jpeg'),
+          //povuci od word
           Column(
             children: [
               for (var i in sentences) SentenceButton(sentence: i.sentence)
             ],
           ),
-          CustomButton(text: "New sentence...")
+          const CustomButton(text: "New sentence...")
         ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "settings"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "build"),
-        ],
-        currentIndex: bottomNavBarIndex,
-        onTap: (index) {
-          setState(() {
-            bottomNavBarIndex = index;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFFFFFCFC).withOpacity(0.8),
-        iconSize: 32,
-        // TODO moze bolje ovaj navbar al zasad radi svoje
-        selectedItemColor: Color(0xFF393E41),
       ),
     );
   }
