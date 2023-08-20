@@ -1,6 +1,10 @@
+import 'package:aac/pages/categories.dart';
+import 'package:aac/pages/sentence_building.dart';
 import 'package:flutter/material.dart';
+
 // import 'package:aac/resources/a_a_c_icons.dart';
 import 'package:aac/resources/a_a_c_icons_icons.dart';
+
 class BaseLayout extends StatefulWidget {
   final Widget child;
 
@@ -13,12 +17,21 @@ class BaseLayout extends StatefulWidget {
 class _BaseLayoutState extends State<BaseLayout> {
   int bottomNavBarIndex = 1;
 
+  final List<Widget> _screens = [
+    Categories(),
+    // Settings(),
+    SentenceBuilding()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // da li appbar ima poentu
       appBar: AppBar(
-        title: const Text('AAC', style: TextStyle(fontFamily: 'Medium', color: Color(0xff393E41)),),
+        title: const Text(
+          'AAC',
+          style: TextStyle(fontFamily: 'Medium', color: Color(0xff393E41)),
+        ),
         backgroundColor: Color(0xffffecec),
       ),
       body: Padding(
@@ -44,6 +57,7 @@ class _BaseLayoutState extends State<BaseLayout> {
         // TODO moze bolje ovaj navbar al zasad radi svoje
         selectedItemColor: Color(0xFF393E41),
       ),
+
     );
   }
 }

@@ -28,7 +28,8 @@ class _CategoriesState extends State<Categories> {
         words: [Word(word: "word 1", image: "resources/images/frog.jpeg")])
   ];
 
-  int bottomNavBarIndex = 1;
+  int _bottomNavBarIndex = 1;
+  int get bottomNavBarIndex => _bottomNavBarIndex;
 
   @override
   Widget build(BuildContext context) {
