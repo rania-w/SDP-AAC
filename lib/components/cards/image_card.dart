@@ -8,16 +8,19 @@ class ImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith((states) =>
-              states.contains(MaterialState.pressed)
-                  ? Colors.yellow[400]
-                  : Colors.yellow[300])),
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-        child: Image.asset(imageAsset, height: 52, width: 52,),
+    return Container(
+      margin: EdgeInsets.all(20),
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith((states) =>
+                states.contains(MaterialState.pressed)
+                    ? Colors.yellow[400]
+                    : Colors.yellow[300])),
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+          child: Image.asset(imageAsset, height: 60, width: 60,),
+        ),
       ),
     );
   }
