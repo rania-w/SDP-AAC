@@ -27,7 +27,7 @@ class _DetailedItemViewState extends State<DetailedItemView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         const WordTitle(
           title: "Frog", // povuci od word

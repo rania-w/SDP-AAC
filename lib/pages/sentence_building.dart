@@ -12,7 +12,7 @@ class SentenceBuilding extends StatefulWidget {
 class _SentenceBuildingState extends State<SentenceBuilding> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return ListView(
       children: [
         CustomInput(),
         CustomButton(text: "Save sentence"),

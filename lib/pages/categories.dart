@@ -30,7 +30,7 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     // const String i = '/resources/images/frog.jpeg';
-    return Column(
+    return ListView(
       children: [
         const Search(),
         for (var i in categories) RowCard(title: i.title, imageAsset: i.image)
