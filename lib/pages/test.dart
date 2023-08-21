@@ -1,10 +1,5 @@
-import 'package:aac/components/cards/custom_card.dart';
-import 'package:aac/components/cards/image_card.dart';
-import 'package:aac/components/cards/row_card.dart';
-import 'package:aac/components/custom_button.dart';
-import 'package:aac/components/search.dart';
-import 'package:aac/components/sentence_button.dart';
-import 'package:aac/components/word_title.dart';
+import 'package:aac/pages/categories.dart';
+import 'package:aac/pages/sentence_building.dart';
 import 'package:flutter/material.dart';
 
 class Test extends StatefulWidget {
@@ -15,19 +10,44 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+
+  int currentPageIndex=1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("AAC"),
-          backgroundColor: Color(0xFFFFECEC),
-        ),
-        body: Padding(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              children: [
-                WordTitle(title: "title")
-              ],
-            )));
+      appBar: AppBar(
+        title: const Text("test"),
+        backgroundColor: Colors.deepPurpleAccent,
+      ),
+      body: <Widget>[
+        Categories(), SentenceBuilding(), Categories()
+      ][currentPageIndex],
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        // indicatorColor: Colors.amber[800],
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.school),
+            icon: Icon(Icons.school_outlined),
+            label: 'School',
+          ),
+        ],
+      ),
+    );
   }
 }

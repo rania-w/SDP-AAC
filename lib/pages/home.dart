@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:aac/objects/category.dart';
-import 'package:aac/objects/word.dart';
-import 'package:responsive_grid/responsive_grid.dart';
-import 'package:aac/components/cards/custom_card.dart';
+import 'package:aac/pages/categories.dart';
+import 'package:aac/pages/sentence_building.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,46 +10,48 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Category> categories = [
-    Category(
-        image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
-        title: "family",
-        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")]),
-    Category(
-        image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
-        title: "favorites",
-        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")]),
-    Category(
-        image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
-        title: "food",
-        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")])
-  ];
+  int currentPageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("AAC"),
-        backgroundColor: Colors.pink,
+        backgroundColor: Color(0xFFffecec),
+        title: const Text(
+          "AAC",
+          style: TextStyle(fontFamily: 'Medium', color: Color(0xff393E41)),
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-        //check how this looks on a phone - dreadful, better on tablet
-        child: ResponsiveGridList(
-            desiredItemWidth: 180,
-            squareCells: true,
-            minSpacing: 20,
-            children: categories.map((i) {
-              return CustomCard(
-                title: i.title,
-                imageAsset: i.image,
-              );
-            }).toList()),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.pink,
-        child: const Icon(Icons.add),
+          padding: EdgeInsets.all(20),
+          child: <Widget>[
+            Categories(),
+            SentenceBuilding(),
+            Categories()
+          ][currentPageIndex]),
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.school),
+            icon: Icon(Icons.school_outlined),
+            label: 'School',
+          ),
+        ],
       ),
     );
   }

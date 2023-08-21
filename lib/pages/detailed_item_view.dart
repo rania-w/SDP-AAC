@@ -1,6 +1,5 @@
 import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/components/custom_button.dart';
-import 'package:aac/components/layouts/base_layout.dart';
 import 'package:aac/components/sentence_button.dart';
 import 'package:aac/objects/sentence.dart';
 import 'package:flutter/material.dart';
@@ -28,22 +27,20 @@ class _DetailedItemViewState extends State<DetailedItemView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseLayout(
-      child: Column(
-        children: [
-          const WordTitle(
-            title: "Frog", // povuci od word
-          ),
-          const ImageCard(imageAsset: 'lib/resources/images/clu.jpeg'),
-          //povuci od word
-          Column(
-            children: [
-              for (var i in sentences) SentenceButton(sentence: i.sentence)
-            ],
-          ),
-          const CustomButton(text: "New sentence...")
-        ],
-      ),
+    return Column(
+      children: [
+        const WordTitle(
+          title: "Frog", // povuci od word
+        ),
+        const ImageCard(imageAsset: 'lib/resources/images/clu.jpeg'),
+        //povuci od word
+        Column(
+          children: [
+            for (var i in sentences) SentenceButton(sentence: i.sentence)
+          ],
+        ),
+        const CustomButton(text: "New sentence...")
+      ],
     );
   }
 }
