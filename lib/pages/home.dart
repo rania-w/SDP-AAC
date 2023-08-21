@@ -1,3 +1,4 @@
+import 'package:aac/resources/a_a_c_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/categories.dart';
 import 'package:aac/pages/sentence_building.dart';
@@ -26,8 +27,8 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.all(20),
           child: <Widget>[
             Categories(),
+            Categories(),
             SentenceBuilding(),
-            Categories()
           ][currentPageIndex]),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -38,18 +39,19 @@ class _HomeState extends State<Home> {
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(AACIcons.icons8_settings_filled),
+            icon: Icon(AACIcons.icons8_settings),
+            label: 'Settings',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(AACIcons.icons8_home_filled),
+            icon: Icon(AACIcons.icons8_home),
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.school),
-            icon: Icon(Icons.school_outlined),
-            label: 'School',
+            selectedIcon: Icon(AACIcons.icons8_puzzle_filled),
+            icon: Icon(AACIcons.icons8_puzzle),
+            label: 'Speak',
           ),
         ],
       ),
