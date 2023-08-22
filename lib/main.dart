@@ -9,10 +9,11 @@ import 'package:aac/pages/words.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/test.dart';
 import 'package:aac/pages/home.dart';
+import 'package:aac/pages/settings.dart';
 
 /// the logic of the object and its appearance are (re: should be) seperate files
 void main() => runApp(MaterialApp(
-      // initialRoute: '/test',
+      initialRoute: '/test',
       // initialRoute: '/categories',
       // initialRoute: '/div',
       // initialRoute: '/base',
@@ -24,6 +25,7 @@ void main() => runApp(MaterialApp(
         '/categories': (context) => Categories(),
         '/words': (context) => Words(),
         '/test': (context) => Test(),
+        '/settings': (context) => Settings(),
         '/': (context) => Home(),
       },
     ));

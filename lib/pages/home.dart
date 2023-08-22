@@ -2,6 +2,8 @@ import 'package:aac/resources/a_a_c_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/categories.dart';
 import 'package:aac/pages/sentence_building.dart';
+import 'package:aac/pages/settings.dart';
+
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -26,7 +28,7 @@ class _HomeState extends State<Home> {
       body: Padding(
           padding: EdgeInsets.all(20),
           child: <Widget>[
-            Categories(),
+            Settings(),
             Categories(),
             SentenceBuilding(),
           ][currentPageIndex]),
