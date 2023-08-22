@@ -20,11 +20,12 @@ class RowCard extends StatelessWidget {
         ),
         onPressed: () {},
         child: Padding(
-          padding: EdgeInsets.fromLTRB(40, 24, 40, 24),
+          padding: EdgeInsets.all(24),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
+                margin: EdgeInsets.only(right: 20),
                 child: Image.asset(
                   imageAsset,
                   height: 52,

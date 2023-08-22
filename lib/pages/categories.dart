@@ -14,22 +14,22 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories> {
   List<Category> categories = [
     Category(
-        image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
+        image: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "family",
-        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")]),
+        words: [Word(word: "word 1", image: "lib/resources/images/frog.jpeg")]),
     Category(
-        image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
+        image: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "favorites",
-        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")]),
+        words: [Word(word: "word 1", image: "lib/resources/images/frog.jpeg")]),
     Category(
-        image: /*Image.asset(*/ "resources/images/frog.jpeg" /*)*/,
+        image: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "food",
-        words: [Word(word: "word 1", image: "resources/images/frog.jpeg")])
+        words: [Word(word: "word 1", image: "lib/resources/images/frog.jpeg")])
   ];
 
   @override
   Widget build(BuildContext context) {
-    // const String i = '/resources/images/frog.jpeg';
+    // const String i = '/lib/resources/images/frog.jpeg';
     return ListView(
       children: [
         const Search(),
