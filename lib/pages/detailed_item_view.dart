@@ -23,14 +23,16 @@ class _DetailedItemViewState extends State<DetailedItemView> {
     Sentence(sentence: "Ona rečenica.")
   ];
 
-  int bottomNavBarIndex = 1;
+  Map data = {};
 
   @override
   Widget build(BuildContext context) {
+    data = (ModalRoute.of(context)?.settings.arguments??{}) as Map;
     return ListView(
       children: [
-        const WordTitle(
-          title: "Frog", // povuci od word
+        WordTitle(
+          // title: data['title'], // povuci od word
+          title: "title",
         ),
         const ImageCard(imageAsset: 'lib/resources/images/clu.jpeg'),
         //povuci od word

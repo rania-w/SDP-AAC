@@ -10,7 +10,7 @@ class WordTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       margin: EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -18,12 +18,18 @@ class WordTitle extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                fontSize: 24,
-                fontFamily: 'Medium',
-                color: Color(0xFF393E41)
-            ),
+                fontSize: 24, fontFamily: 'Medium', color: Color(0xFF393E41)),
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.star_border_outlined, size: 30, color: Color(0xff393E41),))
+          Material(
+            color: Colors.white.withOpacity(0),
+            child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.star_border_outlined,
+                  size: 30,
+                  color: Color(0xff393E41),
+                )),
+          )
         ],
       ),
     );

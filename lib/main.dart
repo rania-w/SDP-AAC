@@ -13,10 +13,6 @@ import 'package:aac/pages/settings.dart';
 
 /// the logic of the object and its appearance are (re: should be) seperate files
 void main() => runApp(MaterialApp(
-      initialRoute: '/test',
-      // initialRoute: '/categories',
-      // initialRoute: '/div',
-      // initialRoute: '/base',
       routes: {
         '/add': (context) => Add(),
         '/div': (context) => DetailedItemView(),

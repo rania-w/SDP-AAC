@@ -34,7 +34,7 @@ class _CategoriesState extends State<Categories> {
     return ListView(
       children: [
         const Search(),
-        for (var i in categories) CategoryCard(category: categories[0],)
+        for (var i in categories) CategoryCard(category: i,)
       ],
     );
   }

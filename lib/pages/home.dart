@@ -1,3 +1,5 @@
+import 'package:aac/pages/detailed_item_view.dart';
+import 'package:aac/pages/words.dart';
 import 'package:aac/resources/a_a_c_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/categories.dart';
