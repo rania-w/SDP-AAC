@@ -1,3 +1,4 @@
+import 'package:aac/components/cards/cat_card.dart';
 import 'package:aac/components/cards/row_card.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/objects/category.dart';
@@ -14,17 +15,17 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories> {
   List<Category> categories = [
     Category(
-        image: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
+        imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "family",
-        words: [Word(word: "word 1", image: "lib/resources/images/frog.jpeg")]),
+        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")]),
     Category(
-        image: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
+        imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "favorites",
-        words: [Word(word: "word 1", image: "lib/resources/images/frog.jpeg")]),
+        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")]),
     Category(
-        image: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
+        imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "food",
-        words: [Word(word: "word 1", image: "lib/resources/images/frog.jpeg")])
+        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")])
   ];
 
   @override
@@ -33,7 +34,7 @@ class _CategoriesState extends State<Categories> {
     return ListView(
       children: [
         const Search(),
-        for (var i in categories) RowCard(title: i.title, imageAsset: i.image)
+        for (var i in categories) CategoryCard(category: categories[0],)
       ],
     );
   }

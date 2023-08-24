@@ -1,11 +1,11 @@
 class Word {
   String word;
-  String image;
+  String imageAsset;
 
   /// audio file :)
 
   Word({
     required this.word,
-    required this.image,
+    required this.imageAsset,
   });
 }
