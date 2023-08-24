@@ -23,7 +23,9 @@ class _WordCardState extends State<WordCard> {
               : Color(0xFFffecec)),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, '/div');
+          Navigator.pushNamed(context, '/div', arguments: {
+            'word': widget.word
+          });
         },
         child: Padding(
           padding: EdgeInsets.all(24),

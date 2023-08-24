@@ -17,7 +17,7 @@ class _CategoriesState extends State<Categories> {
     Category(
         imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "family",
-        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")]),
+        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg"), Word(word: "radi!", imageAsset: "lib/resources/images/frog.jpeg")]),
     Category(
         imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "favorites",

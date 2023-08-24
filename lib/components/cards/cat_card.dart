@@ -24,7 +24,9 @@ class _CategoryCardState extends State<CategoryCard> {
               : Color(0xFFffecec)),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, '/words');
+          Navigator.pushNamed(context, '/words', arguments: {
+            "words": widget.category.words
+          });
         },
         child: Padding(
           padding: EdgeInsets.all(24),
