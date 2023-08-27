@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:aac/components/cards/ud_settings_item.dart';
 import 'package:aac/pages/add.dart';
