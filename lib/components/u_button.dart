@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
 import 'cards/row_card.dart';
@@ -12,8 +13,7 @@ class UButton extends StatefulWidget {
 class _UButtonState extends State<UButton> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: ElevatedButton(
+    return ElevatedButton(
       onPressed: () {},
       onLongPress: () {
         // move it around
@@ -40,13 +40,14 @@ class _UButtonState extends State<UButton> {
             ],
           ),
           IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.delete,
-                color: Color(0xFF393E41),
-              ))
+            onPressed: () {},
+            icon: Icon(
+              Icons.delete,
+              color: Color(0xFF393E41),
+            ),
+          )
         ],
       ),
-    ));
+    );
   }
 }

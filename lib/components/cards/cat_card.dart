@@ -1,11 +1,12 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import '../../objects/category.dart';
 
 class CategoryCard extends StatefulWidget {
-
   final Category category;
+  final String route;
 
-  const CategoryCard({super.key, required this.category});
+  const CategoryCard({super.key, required this.category, required this.route});
 
   @override
   State<CategoryCard> createState() => _CategoryCardState();
@@ -19,14 +20,13 @@ class _CategoryCardState extends State<CategoryCard> {
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith((states) =>
-          states.contains(MaterialState.pressed)
-              ? Color(0xFFDAB9B9)
-              : Color(0xFFffecec)),
+              states.contains(MaterialState.pressed)
+                  ? Color(0xFFDAB9B9)
+                  : Color(0xFFffecec)),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, '/words', arguments: {
-            "words": widget.category.words
-          });
+          Navigator.pushNamed(context, widget.route,
+              arguments: {"words": widget.category.words});
         },
         child: Padding(
           padding: EdgeInsets.all(24),
@@ -41,15 +41,13 @@ class _CategoryCardState extends State<CategoryCard> {
                   width: 52,
                 ),
               ),
-              Container(
-                child: Text(
-                  widget.category.title,
-                  style: TextStyle(
-                      fontFamily: 'Light',
-                      fontSize: 16,
-                      color: Color(0xFF393E41)),
-                ),
-              )
+              Text(
+                widget.category.title,
+                style: TextStyle(
+                    fontFamily: 'Light',
+                    fontSize: 16,
+                    color: Color(0xFF393E41)),
+              ),
             ],
           ),
         ),
