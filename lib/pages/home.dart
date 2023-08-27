@@ -42,18 +42,18 @@ class _HomeState extends State<Home> {
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(AACIcons.icons8_settings_filled),
-            icon: Icon(AACIcons.icons8_settings),
+            selectedIcon: Icon(AACIcons.settingFilled),
+            icon: Icon(AACIcons.settings),
             label: 'Settings',
           ),
           NavigationDestination(
-            selectedIcon: Icon(AACIcons.icons8_home_filled),
-            icon: Icon(AACIcons.icons8_home),
+            selectedIcon: Icon(AACIcons.homeFilled),
+            icon: Icon(AACIcons.home),
             label: 'Home',
           ),
           NavigationDestination(
-            selectedIcon: Icon(AACIcons.icons8_puzzle_filled),
-            icon: Icon(AACIcons.icons8_puzzle),
+            selectedIcon: Icon(AACIcons.puzzleFilled),
+            icon: Icon(AACIcons.puzzle),
             label: 'Speak',
           ),
         ],
