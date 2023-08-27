@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1019622650385",
+    "project_id": "sdp-aac",
+    "storage_bucket": "sdp-aac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019622650385:android:92a9286dc452eeb44bf7b0",
+        "android_client_info": {
+          "package_name": "com.raniaw.aac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019622650385-gcpu4tk7bkt7u82f99rgofd93qut3je8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEM0Ut6m-3-ASbqdRJsBoxMISFX0SRkis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019622650385-gcpu4tk7bkt7u82f99rgofd93qut3je8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
