@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:aac/components/cards/ud_settings_item.dart';
+import 'package:aac/objects/user.dart';
 import 'package:aac/pages/add.dart';
 import 'package:aac/pages/categories.dart';
 import 'package:aac/pages/detailed_item_view.dart';
@@ -12,9 +13,22 @@ import 'package:flutter/material.dart';
 import 'package:aac/pages/test.dart';
 import 'package:aac/pages/home.dart';
 import 'package:aac/pages/settings.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 /// the logic of the object and its appearance are (re: should be) seperate files
-void main() => runApp(MaterialApp(
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       routes: {
         '/add': (context) => Add(),
         '/div': (context) => DetailedItemView(),
@@ -27,5 +41,7 @@ void main() => runApp(MaterialApp(
         '/ud_categories': (context) => UDCategories(),
         '/': (context) => Home(),
       },
-      // initialRoute: '/test',
-    ));
+      initialRoute: '/test',
+    );
+  }
+}
