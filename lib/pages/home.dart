@@ -1,11 +1,9 @@
-import 'package:aac/pages/detailed_item_view.dart';
-import 'package:aac/pages/words.dart';
+// ignore_for_file: prefer_const_constructors
 import 'package:aac/resources/a_a_c_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/categories.dart';
 import 'package:aac/pages/sentence_building.dart';
 import 'package:aac/pages/settings.dart';
-
 
 class Home extends StatefulWidget {
   const Home({super.key});

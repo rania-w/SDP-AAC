@@ -9,8 +9,10 @@ class ImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Image.asset(imageAsset, width: 120, height: 120
-
-      ,));
+    return Image.asset(
+      imageAsset,
+      width: 120,
+      height: 120,
+    );
   }
 }

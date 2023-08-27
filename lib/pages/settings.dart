@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:aac/components/settings_item.dart';
 import 'package:flutter/material.dart';
 import '../components/search.dart';
@@ -16,20 +17,10 @@ class _SettingsState extends State<Settings> {
       body: ListView(
         children: const [
           Search(),
-          SettingsItem(name: "name"),
-          SettingsItem(name: "name"),
-          SettingsItem(name: "name"),
-          SettingsItem(name: "name"),
-          SettingsItem(name: "name"),
+          SettingsItem(name: "Edit categories"),
+          SettingsItem(name: "Accessibility settings"),
+          SettingsItem(name: "Profile"),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Color(0xff9EAD7F),
-        child: Icon(
-          Icons.add,
-          color: Color(0xff393E41),
-        ),
       ),
     );
   }

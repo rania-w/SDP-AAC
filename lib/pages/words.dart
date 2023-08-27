@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/word_card.dart';
 import 'package:flutter/material.dart';
 import '../components/search.dart';
