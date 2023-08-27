@@ -1,5 +1,5 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/cat_card.dart';
-import 'package:aac/components/cards/row_card.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
@@ -17,15 +17,22 @@ class _CategoriesState extends State<Categories> {
     Category(
         imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "family",
-        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg"), Word(word: "radi!", imageAsset: "lib/resources/images/frog.jpeg")]),
+        words: [
+          Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg"),
+          Word(word: "radi!", imageAsset: "lib/resources/images/frog.jpeg")
+        ]),
     Category(
         imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "favorites",
-        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")]),
+        words: [
+          Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")
+        ]),
     Category(
         imageAsset: /*Image.asset(*/ "lib/resources/images/frog.jpeg" /*)*/,
         title: "food",
-        words: [Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")])
+        words: [
+          Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")
+        ])
   ];
 
   @override
@@ -33,8 +40,12 @@ class _CategoriesState extends State<Categories> {
     // const String i = '/lib/resources/images/frog.jpeg';
     return ListView(
       children: [
-        const Search(),
-        for (var i in categories) CategoryCard(category: i,)
+        Search(),
+        for (var i in categories)
+          CategoryCard(
+            category: i,
+            route: '/words',
+          )
       ],
     );
   }

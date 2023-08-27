@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:aac/components/custom_button.dart';
 import 'package:aac/components/custom_input.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,10 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
     return ListView(
       children: [
         CustomInput(),
-        CustomButton(text: "Save sentence"),
+        CustomButton(
+          text: "Save sentence",
+          func: () {},
+        ),
       ],
     );
   }

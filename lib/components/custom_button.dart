@@ -1,9 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final Function func;
 
-  const CustomButton({super.key, required this.text});
+  const CustomButton({super.key, required this.text, required this.func});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class CustomButton extends StatelessWidget {
                       : Color(0xffc1ccac))),
           onPressed: () {},
           child: Padding(
-            padding: EdgeInsets.fromLTRB(20,10,20,10),
+            padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
             child: Text(
               text,
               style: TextStyle(
