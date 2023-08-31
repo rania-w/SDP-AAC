@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  final Function func;
+  final VoidCallback func;
 
   const CustomButton({super.key, required this.text, required this.func});
 
@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
                   states.contains(MaterialState.pressed)
                       ? Color(0xff9ead7f)
                       : Color(0xffc1ccac))),
-          onPressed: () {},
+          onPressed: func,
           child: Padding(
             padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
             child: Text(
