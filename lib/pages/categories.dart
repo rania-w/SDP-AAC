@@ -5,6 +5,7 @@ import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
 import 'package:hive/hive.dart';
 import '../components/search.dart';
+import 'package:aac/services/boxes.dart';
 
 class Categories extends StatefulWidget {
   const Categories({super.key});
@@ -14,15 +15,6 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  late Box<Category> boxCategory;
-
-  @override
-  void initState() {
-    super.initState();
-    // get the previously opened user box
-    boxCategory = Hive.box('categoryBox');
-  }
-
   late var categories = boxCategory.values;
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,8 @@
 import 'package:aac/components/cards/ud_settings_item.dart';
 import 'package:aac/objects/category.dart';
 import 'package:flutter/material.dart';
-
-import '../objects/word.dart';
+import 'package:hive/hive.dart';
+import 'package:aac/services/boxes.dart';
 
 class UDCategories extends StatefulWidget {
   const UDCategories({super.key});
@@ -13,20 +13,7 @@ class UDCategories extends StatefulWidget {
 }
 
 class _UDCategoriesState extends State<UDCategories> {
-  List<Word> wordList = [
-    Word(word: "word", imageAsset: 'lib/resources/images/frog.jpeg')
-  ];
-
-  late List<Category> categories = [
-    Category(
-        imageAsset: 'lib/resources/images/frog.jpeg',
-        title: "title",
-        words: wordList),
-    Category(
-        imageAsset: 'lib/resources/images/frog.jpeg',
-        title: "title",
-        words: wordList)
-  ];
+  late var categories = boxCategory.values;
 
   @override
   Widget build(BuildContext context) {

@@ -3,8 +3,10 @@
 import 'package:aac/components/cards/cat_card.dart';
 import 'package:aac/objects/category.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 import '../../objects/word.dart';
+import 'package:aac/services/boxes.dart';
 
 class UDSettingsItem extends StatefulWidget {
   final Category category;
@@ -16,15 +18,7 @@ class UDSettingsItem extends StatefulWidget {
 }
 
 class _UDSettingsItemState extends State<UDSettingsItem> {
-  List<Category> categories = [
-    Category(
-        imageAsset: "lib/resources/images/frog.jpeg",
-        title: "title",
-        words: [
-          Word(word: "word 1", imageAsset: "lib/resources/images/frog.jpeg")
-        ])
-  ];
-
+  late var categories = boxCategory.values;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,10 +32,7 @@ class _UDSettingsItemState extends State<UDSettingsItem> {
           Row(
             children: [
               IconButton(onPressed: () {}, icon: Icon(Icons.drag_indicator)),
-              CategoryCard(
-                category: categories[0],
-                route: '/add',
-              ),
+              CategoryCard(category: widget.category, route: '/add')
             ],
           ),
           IconButton(onPressed: () {}, icon: Icon(Icons.delete))
