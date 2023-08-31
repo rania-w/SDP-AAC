@@ -5,3 +5,5 @@ late Box boxUser;
 late Box boxCategory;
 
 late Box boxWord;
+
+late Box boxSentence;

@@ -1,38 +1,35 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'word.dart';
+part of 'sentence.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class WordAdapter extends TypeAdapter<Word> {
+class SentenceAdapter extends TypeAdapter<Sentence> {
   @override
-  final int typeId = 3;
+  final int typeId = 4;
 
   @override
-  Word read(BinaryReader reader) {
+  Sentence read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Word(
-      word: fields[0] as String,
-      imageAsset: fields[1] as String,
-      sentences: (fields[2] as List?)?.cast<Sentence>(),
+    return Sentence(
+      sentence: fields[0] as String,
+      wordsAssoc: (fields[1] as List?)?.cast<Word>(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, Word obj) {
+  void write(BinaryWriter writer, Sentence obj) {
     writer
-      ..writeByte(3)
-      ..writeByte(0)
-      ..write(obj.word)
-      ..writeByte(1)
-      ..write(obj.imageAsset)
       ..writeByte(2)
-      ..write(obj.sentences);
+      ..writeByte(0)
+      ..write(obj.sentence)
+      ..writeByte(1)
+      ..write(obj.wordsAssoc);
   }
 
   @override
@@ -41,7 +38,7 @@ class WordAdapter extends TypeAdapter<Word> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is WordAdapter &&
+      other is SentenceAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
