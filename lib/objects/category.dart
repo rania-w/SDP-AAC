@@ -1,6 +1,5 @@
 import 'word.dart';
 import 'package:hive/hive.dart';
-import 'package:uuid/uuid.dart';
 
 part 'category.g.dart';
 

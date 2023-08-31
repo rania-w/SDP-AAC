@@ -2,8 +2,6 @@
 import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/components/custom_button.dart';
 import 'package:aac/components/sentence_button.dart';
-import 'package:aac/objects/sentence.dart';
-import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/components/word_title.dart';
 
@@ -18,14 +16,7 @@ class DetailedItemView extends StatefulWidget {
 }
 
 class _DetailedItemViewState extends State<DetailedItemView> {
-  // List<Sentence> sentences = [
-  //   Sentence(sentence: "This is a sentence", wordsAssoc: ), //wordAssoc povlaci od word
-  //   Sentence(sentence: "I like turtles"),
-  //   Sentence(sentence: "Ona rečenica.")
-  // ];
-
   Map data = {};
-  // late var sentences = boxCategory.values;
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/ud_settings_item.dart';
-import 'package:aac/objects/category.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:aac/services/boxes.dart';
 
 class UDCategories extends StatefulWidget {

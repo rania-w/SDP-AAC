@@ -1,7 +1,6 @@
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/sentence.dart';
 import 'package:aac/objects/word.dart';
-import 'package:hive/hive.dart';
 import 'package:aac/services/boxes.dart';
 import '../constants.dart';
 

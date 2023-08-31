@@ -3,9 +3,6 @@
 import 'package:aac/components/cards/cat_card.dart';
 import 'package:aac/objects/category.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-
-import '../../objects/word.dart';
 import 'package:aac/services/boxes.dart';
 
 class UDSettingsItem extends StatefulWidget {

@@ -27,6 +27,7 @@ class _AddState extends State<Add> {
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
+        // ne ide ovo
         child: CustomForm(initialValue: data['word']),
       ),
     );

@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:aac/objects/category.dart';
 import 'package:aac/pages/startup.dart';
 import 'package:aac/resources/a_a_c_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/categories.dart';
 import 'package:aac/pages/sentence_building.dart';
 import 'package:aac/pages/settings.dart';
-import 'package:hive/hive.dart';
 import 'package:aac/services/boxes.dart';
 
 class Home extends StatefulWidget {
@@ -17,8 +15,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // late Box<Category> boxCategory;
-
   int currentPageIndex = 1;
 
   @override
