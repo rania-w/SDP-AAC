@@ -10,8 +10,12 @@ class Add extends StatefulWidget {
 }
 
 class _AddState extends State<Add> {
+  Map data = {};
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFffecec),
@@ -23,7 +27,7 @@ class _AddState extends State<Add> {
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
-        child: CustomForm(),
+        child: CustomForm(initialValue: data['word']),
       ),
     );
   }

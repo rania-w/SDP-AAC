@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class SettingsItem extends StatefulWidget {
   final String name;
+  final VoidCallback onPressed;
 
-  const SettingsItem({super.key, required this.name});
+  const SettingsItem({super.key, required this.name, required this.onPressed});
 
   @override
   State<SettingsItem> createState() => _SettingsItemState();
@@ -23,9 +24,7 @@ class _SettingsItemState extends State<SettingsItem> {
         child: Padding(
             padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/ud_categories');
-              },
+              onPressed: widget.onPressed,
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.resolveWith((states) =>
                       states.contains(MaterialState.pressed)
@@ -38,7 +37,7 @@ class _SettingsItemState extends State<SettingsItem> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "setting item",
+                  widget.name,
                   style: TextStyle(color: Color(0xff393E41)),
                 ),
               ),

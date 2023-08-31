@@ -15,11 +15,22 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: const [
+        children: [
           Search(),
-          SettingsItem(name: "Edit categories"),
-          SettingsItem(name: "Accessibility settings"),
-          SettingsItem(name: "Profile"),
+          SettingsItem(
+            name: "Edit categories",
+            onPressed: () {
+              Navigator.pushNamed(context, '/ud_categories');
+            },
+          ),
+          SettingsItem(
+            name: "Accessibility settings",
+            onPressed: () {},
+          ),
+          SettingsItem(
+            name: "Profile",
+            onPressed: () {},
+          ),
         ],
       ),
     );
