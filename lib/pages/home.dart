@@ -2,7 +2,7 @@
 import 'package:aac/pages/startup.dart';
 import 'package:aac/resources/a_a_c_icons_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:aac/pages/categories.dart';
+import 'package:aac/pages/c-w/categories.dart';
 import 'package:aac/pages/sentence_building.dart';
 import 'package:aac/pages/settings.dart';
 import 'package:aac/services/boxes.dart';

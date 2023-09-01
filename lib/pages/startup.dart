@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:aac/components/custom_button.dart';
+import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/user.dart';
 import 'package:aac/services/boxes.dart';
@@ -29,7 +29,7 @@ class _StartupState extends State<Startup> {
         child: Column(children: [
           Text(
             "Kako se zoveš?",
-            style: textStyle.copyWith(fontFamily: 'Medium', fontSize: 24),
+            style: heading,
           ),
           SizedBox(
             height: 20,
@@ -39,38 +39,31 @@ class _StartupState extends State<Startup> {
             child: Column(
               children: [
                 TextFormField(
-                  validator: (val) => val!.isEmpty ? 'Unesite ime' : null,
-                  onChanged: (val) {
-                    setState(() => nickname = val);
-                  },
-                  decoration: InputDecoration(
-                    label: Text('Ime'),
-                    labelStyle: TextStyle(color: grey),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: grey, width: 2.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: black, width: 2.0),
-                    ),
-                    fillColor: white,
-                  ),
-                ),
+                    validator: (val) => val!.isEmpty ? 'Unesite ime' : null,
+                    onChanged: (val) {
+                      setState(() => nickname = val);
+                    },
+                    decoration:
+                        textInputDecoration.copyWith(label: Text('nickname'))),
                 Text(
                   error,
                   style: TextStyle(color: Colors.red, fontSize: 14.0),
                 ),
                 CustomButton(
-                    text: "Dalje",
-                    func: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushNamed(context, '/');
-                        boxUser.put('user_key', User(nickname: nickname));
-                      } else {
-                        setState(() {
-                          error = 'Unesite ime';
-                        });
-                      }
-                    }),
+                  text: "Dalje",
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.pushNamed(context, '/');
+                      boxUser.put('user_key', User(nickname: nickname));
+                    } else {
+                      setState(() {
+                        error = 'Unesite ime';
+                      });
+                    }
+                  },
+                  defaultColor: green,
+                  focusColor: greenF,
+                ),
               ],
             ),
           ),

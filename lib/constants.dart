@@ -5,11 +5,12 @@ const textInputDecoration = InputDecoration(
   filled: true,
   contentPadding: EdgeInsets.all(12.0),
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.white, width: 2.0),
+    borderSide: BorderSide(color: grey, width: 2.0),
   ),
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(color: black, width: 2.0),
   ),
+  labelStyle: TextStyle(color: grey),
 );
 
 const black = Color(0xff393E41);
@@ -26,8 +27,17 @@ var appBar = AppBar(
   iconTheme: IconThemeData(color: black),
   title: Text(
     "AAC",
-    style: textStyle.copyWith(fontFamily: 'Medium'),
+    style: heading.copyWith(fontFamily: 'Medium'),
   ),
 );
 
-const textStyle = TextStyle(color: black);
+const paragraph = TextStyle(
+  color: black,
+  fontFamily: 'Light',
+  fontSize: 16,
+);
+const heading = TextStyle(
+  color: black,
+  fontSize: 24,
+  fontFamily: 'Medium',
+);

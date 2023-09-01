@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:aac/components/custom_button.dart';
-import 'package:aac/components/custom_input.dart';
+import 'package:aac/components/buttons/custom_button.dart';
+import 'package:aac/components/input/custom_input.dart';
+import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 
 class SentenceBuilding extends StatefulWidget {
@@ -18,7 +19,9 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
         CustomInput(),
         CustomButton(
           text: "Save sentence",
-          func: () {},
+          onPressed: () {},
+          defaultColor: green,
+          focusColor: greenF,
         ),
       ],
     );

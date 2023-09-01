@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/image_card.dart';
-import 'package:aac/components/custom_button.dart';
-import 'package:aac/components/sentence_button.dart';
+import 'package:aac/components/buttons/custom_button.dart';
+import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/components/word_title.dart';
 
@@ -44,12 +44,19 @@ class _DetailedItemViewState extends State<DetailedItemView> {
             Column(
               children: [
                 for (var i in data['word'].sentences)
-                  SentenceButton(sentence: i.sentence)
+                  CustomButton(
+                    text: i.sentence,
+                    onPressed: () {},
+                    defaultColor: green,
+                    focusColor: greenF,
+                  )
               ],
             ),
             CustomButton(
               text: "New sentence...",
-              func: () {},
+              onPressed: () {},
+              defaultColor: green,
+              focusColor: greenF,
             )
           ],
         ),

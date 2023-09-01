@@ -6,13 +6,13 @@ import 'package:aac/objects/sentence.dart';
 import 'package:aac/objects/user.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
-import 'package:aac/pages/add.dart';
-import 'package:aac/pages/categories.dart';
+import 'package:aac/pages/add-edit/add.dart';
+import 'package:aac/pages/c-w/categories.dart';
 import 'package:aac/pages/detailed_item_view.dart';
 import 'package:aac/pages/sentence_building.dart';
 import 'package:aac/pages/startup.dart';
-import 'package:aac/pages/ud_categories.dart';
-import 'package:aac/pages/words.dart';
+import 'package:aac/pages/add-edit/ud_categories.dart';
+import 'package:aac/pages/c-w/words.dart';
 import 'package:aac/services/populate.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/test.dart';
@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: boxUser.isEmpty ? '/startup' : '/',
+      // initialRoute: '/words',
       routes: {
         '/add': (context) => Add(),
         '/div': (context) => DetailedItemView(),

@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:aac/components/custom_button.dart';
+import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -28,27 +28,37 @@ class _CustomFormState extends State<CustomForm> {
                 return null;
               },
               decoration: InputDecoration(
-                  label: Text("Name",
-                      style: textStyle.copyWith(
-                          fontFamily: 'Light', fontSize: 16))),
+                label: Text("Name", style: paragraph),
+              ),
             ),
             Placeholder(),
-            CustomButton(text: "Spasi promjene", func: () {}),
+            CustomButton(
+              text: "Spasi promjene",
+              onPressed: () {},
+              defaultColor: green,
+              focusColor: greenF,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomButton(
-                    text: "Nazad",
-                    func: () {
-                      Navigator.pop(context);
-                    }),
+                  text: "Nazad",
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  defaultColor: white,
+                  focusColor: greenF,
+                ),
                 CustomButton(
-                    text: "Spasi promjene",
-                    func: () {
-                      if (_formKey.currentState!.validate()) {
-                        // Process data.
-                      }
-                    }),
+                  text: "Spasi promjene",
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      // Process data.
+                    }
+                  },
+                  defaultColor: green,
+                  focusColor: greenF,
+                ),
               ],
             )
           ],
