@@ -4,94 +4,141 @@ import 'package:aac/objects/word.dart';
 import 'package:aac/services/boxes.dart';
 import '../constants.dart';
 
+Category favs = Category(imageAsset: imageAsset, title: "Favs", words: []);
+Category emocije =
+    Category(imageAsset: imageAsset, title: 'Emocije', words: []);
+Category konverzacija =
+    Category(imageAsset: imageAsset, title: 'Konverzacija', words: []);
+
+List<Category> defaultCategories = [favs, emocije, konverzacija];
+
 List<Word> favWords = [];
+Word sreca = Word(
+    word: "Sreća",
+    imageAsset: imageAsset,
+    sentences: [
+      Sentence(sentence: "Osjećam se sretno."),
+      Sentence(sentence: 'Nisam sretan'),
+      Sentence(sentence: "Jesi li sretan?")
+    ],
+    categoryId: emocije.categoryId);
+Word tuga = Word(
+    word: 'Tuga',
+    imageAsset: imageAsset,
+    sentences: [
+      Sentence(sentence: 'Tužan sam'),
+      Sentence(sentence: 'Jesi li tužan?')
+    ],
+    categoryId: emocije.categoryId);
+Word ljutnja = Word(
+    word: 'Ljutnja',
+    imageAsset: imageAsset,
+    sentences: [
+      Sentence(sentence: 'Ljut sam'),
+      Sentence(sentence: 'Nemoj se ljutiti.')
+    ],
+    categoryId: emocije.categoryId);
+
+Word umor = Word(
+    word: "Umor",
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Umorna sam')],
+    categoryId: emocije.categoryId);
+
+Word zbunjen = Word(
+    word: 'Zbunjenost',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Zbunjena sam.')],
+    categoryId: emocije.categoryId);
+
+Word muka = Word(
+    word: "Mučnina",
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: "Muka mi je.")],
+    categoryId: emocije.categoryId);
 List<Word> emocijeWords = [
-  Word(word: "Sreća", imageAsset: imageAsset, sentences: [
-    Sentence(sentence: "Osjećam se sretno."),
-    Sentence(sentence: 'Nisam sretan'),
-    Sentence(sentence: "Jesi li sretan?")
-  ]),
-  Word(word: 'Tuga', imageAsset: imageAsset, sentences: [
-    Sentence(sentence: 'Tužan sam'),
-    Sentence(sentence: 'Jesi li tužan?')
-  ]),
-  Word(word: 'Ljutnja', imageAsset: imageAsset, sentences: [
-    Sentence(sentence: 'Ljut sam'),
-    Sentence(sentence: 'Nemoj se ljutiti.')
-  ]),
-  Word(
-      word: "Umor",
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Umorna sam')]),
-  Word(
-      word: 'Zbunjenost',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Zbunjena sam.')]),
-  Word(
-      word: "Mučnina",
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: "Muka mi je.")]),
+  sreca,
+  tuga,
+  ljutnja,
+  umor,
+  zbunjen,
 ];
 
+Word cao = Word(
+    word: "Ćao",
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word ja = Word(
+    word: 'Ja',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word ti = Word(
+    word: 'Ti',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word da = Word(
+    word: 'Da',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word ne = Word(
+    word: 'Ne',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word izvini = Word(
+    word: 'Izvini',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word ponovi = Word(
+    word: "Ponovi",
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word upomoc = Word(
+    word: 'Upomoć',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+Word pogledaj = Word(
+    word: 'Pogledaj',
+    imageAsset: imageAsset,
+    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    categoryId: konverzacija.categoryId);
+
 List<Word> konverzacijaWords = [
-  Word(
-      word: "Ćao",
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: 'Ja',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: 'Da',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: 'Ne',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: 'Ti',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: 'Izvini',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: "Ponovi",
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: 'Pogledaj',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')]),
-  Word(
-      word: 'Upomoć',
-      imageAsset: imageAsset,
-      sentences: [Sentence(sentence: 'Ćao, kako si?')])
+  cao,
+  ja,
+  ti,
+  da,
+  ne,
+  upomoc,
+  izvini,
+  pogledaj,
+  ponovi
 ];
+
 // porodica
 // moje rijeci prazna lista
 
-// default categories
-List<Category> defaultCategories = [
-  Category(imageAsset: imageAsset, title: "Favs", words: favWords),
-  Category(imageAsset: imageAsset, title: 'Emocije', words: emocijeWords),
-  Category(
-      imageAsset: imageAsset, title: 'Konverzacija', words: konverzacijaWords)
-];
-
-// boxWord.get('key_${}');
-
-// default words per category
-// late Box<Category> boxCategory;
-
 void populate() {
-  // boxCategory = Hive.box<Category>('boxCategory');
-  if (boxCategory.isEmpty) {
-    for (var category in defaultCategories) {
-      boxCategory.put('key_${category.title}', category);
+  try {
+    emocije.setWords = emocijeWords;
+    konverzacija.setWords = konverzacijaWords;
+    favs.setWords = favWords;
+    if (boxCategory.isEmpty) {
+      for (var category in defaultCategories) {
+        boxCategory.put(category.categoryId, category);
+        for (var word in category.words) {
+          boxWord.put(word.wordId, word);
+        }
+      }
     }
+  } catch (e) {
+    print("populate exception: " + e.toString());
   }
 }
