@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/components/buttons/custom_button.dart';
-import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/components/cards/word_added.dart';
 import 'package:aac/components/input/image_input.dart';
 import 'package:aac/constants.dart';
