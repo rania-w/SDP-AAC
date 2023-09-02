@@ -3,12 +3,12 @@ import 'package:aac/components/buttons/custom_button.dart';
 // import 'package:aac/components/cards/card_template.dart';
 import 'package:aac/components/cards/cat_card.dart';
 import 'package:aac/components/cards/image_card.dart';
-import 'package:aac/components/cards/row_card.dart';
 import 'package:aac/components/cards/ud_settings_item.dart';
 import 'package:aac/components/cards/word_card.dart';
 import 'package:aac/components/word_title.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
+import 'package:aac/pages/add-edit/add_cat.dart';
 import 'package:aac/pages/c-w/categories.dart';
 import 'package:aac/pages/detailed_item_view.dart';
 import 'package:aac/pages/sentence_building.dart';
@@ -28,33 +28,6 @@ class _TestState extends State<Test> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("test"),
-        backgroundColor: Colors.deepPurpleAccent,
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // CustomCard(
-            //     onPressed: () {
-            //       Navigator.pushReplacementNamed(
-            //         context,
-            //         '/words',
-            //       );
-            //     },
-            //     category: Category(
-            //       imageAsset: imageAsset,
-            //       title: "title",
-            //       words: [],
-            //     ),
-            //     word: null),
-            // CustomCard(onPressed: () {})
-          ],
-        ),
-      ),
-    );
+    return AddCategory();
   }
 }

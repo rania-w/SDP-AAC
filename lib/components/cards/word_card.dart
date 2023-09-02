@@ -1,12 +1,13 @@
 // ignore_for_file: prefer_const_constructors
-
+import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 import '../../objects/word.dart';
 
 class WordCard extends StatefulWidget {
   final Word word;
+  final VoidCallback onPressed;
 
-  const WordCard({super.key, required this.word});
+  const WordCard({super.key, required this.word, required this.onPressed});
 
   @override
   State<WordCard> createState() => _WordCardState();
@@ -16,18 +17,13 @@ class _WordCardState extends State<WordCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 24, 0, 24),
+      margin: EdgeInsets.symmetric(vertical: 24),
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith((states) =>
-              states.contains(MaterialState.pressed)
-                  ? Color(0xFFDAB9B9)
-                  : Color(0xFFffecec)),
+              states.contains(MaterialState.pressed) ? primaryF : primary),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, '/div',
-              arguments: {'word': widget.word});
-        },
+        onPressed: widget.onPressed,
         child: Padding(
           padding: EdgeInsets.all(24),
           child: Row(
@@ -43,10 +39,7 @@ class _WordCardState extends State<WordCard> {
               ),
               Text(
                 widget.word.word,
-                style: TextStyle(
-                    fontFamily: 'Light',
-                    fontSize: 16,
-                    color: Color(0xFF393E41)),
+                style: paragraph,
               ),
             ],
           ),

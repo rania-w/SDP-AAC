@@ -3,6 +3,7 @@
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/user.dart';
+import 'package:aac/pages/home.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 
@@ -53,8 +54,11 @@ class _StartupState extends State<Startup> {
                   text: "Dalje",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.pushNamed(context, '/');
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => Home(),
+                      ));
                       boxUser.put('user_key', User(nickname: nickname));
+                      print(boxUser.values);
                     } else {
                       setState(() {
                         error = 'Unesite ime';

@@ -24,13 +24,14 @@ class WordTitle extends StatelessWidget {
           Material(
             color: Colors.white.withOpacity(0),
             child: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.star_border_outlined,
-                  size: 30,
-                  color: Color(0xff393E41),
-                )),
-          )
+              onPressed: () {},
+              icon: Icon(
+                Icons.star_border_outlined,
+                size: 30,
+                color: Color(0xff393E41),
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/components/settings_item.dart';
+import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:flutter/material.dart';
 import '../components/search.dart';
 
@@ -20,7 +21,8 @@ class _SettingsState extends State<Settings> {
           SettingsItem(
             name: "Edit categories",
             onPressed: () {
-              Navigator.pushNamed(context, '/ud_categories');
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: ((context) => UDCategories())));
             },
           ),
           SettingsItem(
