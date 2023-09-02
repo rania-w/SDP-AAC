@@ -42,167 +42,163 @@ class _EditCategoryState extends State<EditCategory> {
           style: heading,
         ),
       ),
-      body: Padding(
+      body: ListView(
         padding: EdgeInsets.all(20),
-        // ne ide ovo
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  CustomImageInput(
-                    imageAsset: data['category'].imageAsset,
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                      initialValue: data['category'].title,
-                      validator: (val) =>
-                          val!.isEmpty ? 'Polje ne može biti prazno' : null,
-                      onChanged: (val) {
-                        setState(() => catTitle = val);
-                      },
-                      decoration:
-                          textInputDecoration.copyWith(label: Text("Naziv")),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Visibility(
-                visible: !button,
-                child: CustomButton(
-                    text: "Dodaj riječi",
-                    onPressed: () {
-                      setState(() {
-                        form = false;
-                        button = true;
-                      });
-                    },
-                    defaultColor: primary,
-                    focusColor: primaryF),
-              ),
-              Visibility(
-                visible: !form,
-                child: Column(
+        children: [
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Row(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                            onPressed: (() {
-                              setState(() {
-                                form = true;
-                                button = false;
-                              });
-                            }),
-                            icon: Icon(Icons.close))
-                      ],
+                    CustomImageInput(
+                      imageAsset: data['category'].imageAsset,
                     ),
-                    Row(
-                      children: [
-                        CustomImageInput(imageAsset: imageAsset),
-                        Expanded(
-                          child: TextFormField(
-                            validator: (val) => val!.isEmpty
-                                ? 'Polje ne može biti prazno'
-                                : null,
-                            onChanged: (val) {
-                              word = Word(
-                                  imageAsset: imageAsset,
-                                  word: val,
-                                  sentences: [],
-                                  categoryId: data['category'].categoryId);
-                              // setState(() => word.word = val);
-                            },
-                            decoration: textInputDecoration.copyWith(
-                                label: Text("Riječ")),
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              setState(() {
-                                wordList.add(word);
-                              });
-                            }
-                          },
-                          icon: Icon(Icons.add),
-                        ),
-                      ],
+                    Expanded(
+                      child: TextFormField(
+                        initialValue: data['category'].title,
+                        validator: (val) =>
+                            val!.isEmpty ? 'Polje ne može biti prazno' : null,
+                        onChanged: (val) {
+                          setState(() => catTitle = val);
+                        },
+                        decoration:
+                            textInputDecoration.copyWith(label: Text("Naziv")),
+                      ),
                     ),
                   ],
                 ),
-              ),
-              Row(
-                children: [
-                  Column(
+                SizedBox(
+                  height: 20,
+                ),
+                Visibility(
+                  visible: !button,
+                  child: CustomButton(
+                      text: "Dodaj riječi",
+                      onPressed: () {
+                        setState(() {
+                          form = false;
+                          button = true;
+                        });
+                      },
+                      defaultColor: primary,
+                      focusColor: primaryF),
+                ),
+                Visibility(
+                  visible: !form,
+                  child: Column(
                     children: [
+                      // close button
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                              onPressed: (() {
+                                setState(() {
+                                  form = true;
+                                  button = false;
+                                });
+                              }),
+                              icon: Icon(Icons.close))
+                        ],
+                      ),
+                      // image + text + add icon
                       Row(
                         children: [
-                          Visibility(
-                            visible: wordList.isNotEmpty,
-                            child: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  wordList.clear();
-                                });
+                          CustomImageInput(imageAsset: imageAsset),
+                          Expanded(
+                            child: TextFormField(
+                              validator: (val) => val!.isEmpty
+                                  ? 'Polje ne može biti prazno'
+                                  : null,
+                              onChanged: (val) {
+                                word = Word(
+                                    imageAsset: imageAsset,
+                                    word: val,
+                                    sentences: [],
+                                    categoryId: data['category'].categoryId);
+                                // setState(() => word.word = val);
                               },
-                              icon: Icon(Icons.delete),
+                              decoration: textInputDecoration.copyWith(
+                                  label: Text("Riječ")),
                             ),
                           ),
-                          for (var i in wordList)
-                            WordAdded(
-                              word: i,
-                              onPressed: () {
+                          IconButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
                                 setState(() {
-                                  wordList.remove(i);
+                                  wordList.add(word);
                                 });
-                              },
-                            ),
+                              }
+                            },
+                            icon: Icon(Icons.add),
+                          ),
                         ],
                       ),
                     ],
                   ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomButton(
-                    text: "Nazad",
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    defaultColor: white,
-                    focusColor: greenF,
-                  ),
-                  CustomButton(
-                    text: "Spasi",
-                    onPressed: () {
-                      // funkcija za add/update
-                      if (_formKey.currentState!.validate()) {
-                        category.imageAsset = imageAsset;
-                        category.title = catTitle;
-                        category.words = wordList;
-                        boxCategory.put(category.categoryId, category);
-                        for (var i in wordList) {
-                          boxWord.put(i.wordId, i);
+                ),
+                Row(
+                  children: [
+                    Visibility(
+                      visible: wordList.isNotEmpty,
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            wordList.clear();
+                          });
+                        },
+                        icon: Icon(Icons.delete),
+                      ),
+                    ),
+                    for (var i in wordList)
+                      WordAdded(
+                        word: i,
+                        onPressed: () {
+                          setState(() {
+                            wordList.remove(i);
+                          });
+                        },
+                      ),
+                  ],
+                ),
+                //buttons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomButton(
+                      text: "Nazad",
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      defaultColor: white,
+                      focusColor: greenF,
+                    ),
+                    CustomButton(
+                      text: "Spasi",
+                      onPressed: () {
+                        // funkcija za add/update
+                        if (_formKey.currentState!.validate()) {
+                          category.imageAsset = imageAsset;
+                          category.title = catTitle;
+                          category.words = wordList;
+                          boxCategory.put(category.categoryId, category);
+                          for (var i in wordList) {
+                            boxWord.put(i.wordId, i);
+                          }
                         }
-                      }
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: ((context) => UDCategories())));
-                    },
-                    defaultColor: green,
-                    focusColor: greenF,
-                  )
-                ],
-              ),
-            ],
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: ((context) => UDCategories())));
+                      },
+                      defaultColor: green,
+                      focusColor: greenF,
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

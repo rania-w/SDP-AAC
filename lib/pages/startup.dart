@@ -54,11 +54,11 @@ class _StartupState extends State<Startup> {
                   text: "Dalje",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => Home(),
                       ));
                       boxUser.put('user_key', User(nickname: nickname));
-                      print(boxUser.values);
+                      debugPrint(boxUser.values.toString());
                     } else {
                       setState(() {
                         error = 'Unesite ime';

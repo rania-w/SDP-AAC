@@ -1,26 +1,15 @@
-// ignore_for_file: prefer_const_constructors, unused_import
+// ignore_for_file: prefer_const_constructors
 
-import 'package:aac/components/cards/ud_settings_item.dart';
-import 'package:aac/constants.dart';
 import 'package:aac/objects/sentence.dart';
 import 'package:aac/objects/user.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
-import 'package:aac/pages/add-edit/add_cat.dart';
-import 'package:aac/pages/c-w/categories.dart';
-import 'package:aac/pages/detailed_item_view.dart';
-import 'package:aac/pages/sentence_building.dart';
 import 'package:aac/pages/startup.dart';
-import 'package:aac/pages/add-edit/ud_categories.dart';
-import 'package:aac/pages/c-w/words.dart';
 import 'package:aac/services/populate.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/test.dart';
 import 'package:aac/pages/home.dart';
-import 'package:aac/pages/settings.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:provider/provider.dart';
-import 'package:uuid/uuid.dart';
 import 'services/boxes.dart';
 
 /// the logic of the object and its appearance are (re: should be) seperate files
@@ -32,7 +21,7 @@ void main() async {
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(WordAdapter());
     Hive.registerAdapter(SentenceAdapter());
-    // Box<Category> boxCategory;
+
     boxUser = await Hive.openBox<User>('boxUser');
     boxCategory = await Hive.openBox<Category>('boxCategory');
     boxWord = await Hive.openBox<Word>('boxWord');
@@ -42,12 +31,13 @@ void main() async {
     // await boxCategory.clear();
     // await boxUser.clear();
     // await boxWord.clear();
-    // print("cleared");
+    // debugPrint("cleared");
+
     populate();
-    print(boxCategory.values);
-    print(boxWord.values);
+    debugPrint(boxCategory.values.toString());
+    debugPrint(boxWord.values.toString());
   } catch (e) {
-    print("main exception: " + e.toString());
+    debugPrint("main exception: $e");
   }
   runApp(MyApp());
 }
