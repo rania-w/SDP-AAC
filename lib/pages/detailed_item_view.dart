@@ -2,6 +2,7 @@
 import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
+import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/components/word_title.dart';
 
@@ -21,7 +22,7 @@ class _DetailedItemViewState extends State<DetailedItemView> {
   @override
   Widget build(BuildContext context) {
     data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
-
+    late var word = boxWord.get(data['wordId']);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFffecec),
@@ -37,13 +38,13 @@ class _DetailedItemViewState extends State<DetailedItemView> {
           children: [
             WordTitle(
               // title: data['title'], // povuci od word
-              title: data['word'].word,
+              title: word.word,
             ),
-            ImageCard(imageAsset: data['word'].imageAsset),
+            ImageCard(imageAsset: word.imageAsset),
             //povuci od word
             Column(
               children: [
-                for (var i in data['word'].sentences)
+                for (var i in word.sentences)
                   CustomButton(
                     text: i.sentence,
                     onPressed: () {},

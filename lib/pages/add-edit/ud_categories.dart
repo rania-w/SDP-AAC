@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/ud_settings_item.dart';
+import 'package:aac/constants.dart';
+import 'package:aac/pages/add-edit/add_edit_page_template.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/services/boxes.dart';
 
@@ -17,11 +19,11 @@ class _UDCategoriesState extends State<UDCategories> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFffecec),
-        iconTheme: IconThemeData(color: Color(0xff393E41)),
+        backgroundColor: primary,
+        iconTheme: IconThemeData(color: black),
         title: const Text(
           "AAC",
-          style: TextStyle(fontFamily: 'Medium', color: Color(0xff393E41)),
+          style: TextStyle(fontFamily: 'Medium', color: black),
         ),
       ),
       body: Padding(
@@ -36,11 +38,15 @@ class _UDCategoriesState extends State<UDCategories> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Color(0xff9EAD7F),
+        onPressed: () {
+          // Navigator.pushNamed(context, '/add', arguments: {'initialData': ''});
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Add()));
+        },
+        backgroundColor: green,
         child: Icon(
           Icons.add,
-          color: Color(0xff393E41),
+          color: black,
         ),
       ),
     );

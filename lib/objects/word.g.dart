@@ -20,19 +20,24 @@ class WordAdapter extends TypeAdapter<Word> {
       word: fields[0] as String,
       imageAsset: fields[1] as String,
       sentences: (fields[2] as List?)?.cast<Sentence>(),
-    );
+      categoryId: fields[4] as String,
+    )..wordId = fields[3] as String;
   }
 
   @override
   void write(BinaryWriter writer, Word obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.word)
       ..writeByte(1)
       ..write(obj.imageAsset)
       ..writeByte(2)
-      ..write(obj.sentences);
+      ..write(obj.sentences)
+      ..writeByte(3)
+      ..write(obj.wordId)
+      ..writeByte(4)
+      ..write(obj.categoryId);
   }
 
   @override

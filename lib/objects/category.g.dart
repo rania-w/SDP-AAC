@@ -20,19 +20,21 @@ class CategoryAdapter extends TypeAdapter<Category> {
       imageAsset: fields[1] as String,
       title: fields[0] as String,
       words: (fields[2] as List).cast<Word>(),
-    );
+    )..categoryId = fields[3] as String;
   }
 
   @override
   void write(BinaryWriter writer, Category obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
       ..write(obj.imageAsset)
       ..writeByte(2)
-      ..write(obj.words);
+      ..write(obj.words)
+      ..writeByte(3)
+      ..write(obj.categoryId);
   }
 
   @override

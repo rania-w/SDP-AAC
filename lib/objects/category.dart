@@ -1,3 +1,5 @@
+import 'package:uuid/uuid.dart';
+
 import 'word.dart';
 import 'package:hive/hive.dart';
 
@@ -12,6 +14,10 @@ class Category {
   String imageAsset;
   @HiveField(2)
   List<Word> words;
-  Category(
-      {required this.imageAsset, required this.title, required this.words});
+  List<Word> get getWords => words;
+  set setWords(List<Word> words) => this.words = words;
+  @HiveField(3)
+  String categoryId;
+  Category({required this.imageAsset, required this.title, required this.words})
+      : categoryId = Uuid().v4();
 }
