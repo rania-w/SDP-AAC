@@ -42,6 +42,7 @@ dependencies:
   hive_flutter: 
   responsive_grid_list: ^1.3.2
   image_picker:
+  flutter_tts: 
 
 dev_dependencies:
   flutter_test:

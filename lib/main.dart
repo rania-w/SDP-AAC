@@ -9,8 +9,10 @@ import 'package:aac/services/populate.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/test.dart';
 import 'package:aac/pages/home.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'services/boxes.dart';
+import 'services/tts.dart';
 
 /// the logic of the object and its appearance are (re: should be) seperate files
 
@@ -28,16 +30,22 @@ void main() async {
     // boxSentence = await Hive.openBox<Sentence>('boxSentence');
 
     // temporary
-    // await boxCategory.clear();
-    // await boxUser.clear();
-    // await boxWord.clear();
-    // debugPrint("cleared");
+    await boxCategory.clear();
+    await boxUser.clear();
+    await boxWord.clear();
+    debugPrint("cleared");
 
     populate();
-    debugPrint(boxCategory.values.toString());
-    debugPrint(boxWord.values.toString());
+    // debugPrint(boxCategory.values.toString());
+    // debugPrint(boxWord.values.toString());
   } catch (e) {
-    debugPrint("main exception: $e");
+    debugPrint("hive exception: $e");
+  }
+
+  try {
+    ttsConf();
+  } catch (e) {
+    debugPrint("tts exception: $e");
   }
   runApp(MyApp());
 }
