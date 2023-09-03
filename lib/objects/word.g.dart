@@ -19,7 +19,7 @@ class WordAdapter extends TypeAdapter<Word> {
     return Word(
       word: fields[0] as String,
       imageAsset: fields[1] as String,
-      sentences: (fields[2] as List?)?.cast<Sentence>(),
+      sentences: (fields[2] as List?)?.cast<String>(),
       categoryId: fields[4] as String,
     )..wordId = fields[3] as String;
   }

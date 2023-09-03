@@ -17,44 +17,38 @@ Word sreca = Word(
     word: "Sreća",
     imageAsset: imageAsset,
     sentences: [
-      Sentence(sentence: "Osjećam se sretno."),
-      Sentence(sentence: 'Nisam sretan'),
-      Sentence(sentence: "Jesi li sretan?")
+      "Osjećam se sretno.",
+      'Nisam sretan',
+      "Jesi li sretan?",
     ],
     categoryId: emocije.categoryId);
 Word tuga = Word(
     word: 'Tuga',
     imageAsset: imageAsset,
-    sentences: [
-      Sentence(sentence: 'Tužan sam'),
-      Sentence(sentence: 'Jesi li tužan?')
-    ],
+    sentences: ['Tužan sam', 'Jesi li tužan?'],
     categoryId: emocije.categoryId);
 Word ljutnja = Word(
     word: 'Ljutnja',
     imageAsset: imageAsset,
-    sentences: [
-      Sentence(sentence: 'Ljut sam'),
-      Sentence(sentence: 'Nemoj se ljutiti.')
-    ],
+    sentences: ['Ljut sam', 'Nemoj se ljutiti.'],
     categoryId: emocije.categoryId);
 
 Word umor = Word(
     word: "Umor",
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Umorna sam')],
+    sentences: ['Umorna sam'],
     categoryId: emocije.categoryId);
 
 Word zbunjen = Word(
     word: 'Zbunjenost',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Zbunjena sam.')],
+    sentences: ['Zbunjena sam.'],
     categoryId: emocije.categoryId);
 
 Word muka = Word(
     word: "Mučnina",
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: "Muka mi je.")],
+    sentences: ["Muka mi je."],
     categoryId: emocije.categoryId);
 List<Word> emocijeWords = [
   sreca,
@@ -67,47 +61,47 @@ List<Word> emocijeWords = [
 Word cao = Word(
     word: "Ćao",
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word ja = Word(
     word: 'Ja',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word ti = Word(
     word: 'Ti',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word da = Word(
     word: 'Da',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word ne = Word(
     word: 'Ne',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word izvini = Word(
     word: 'Izvini',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word ponovi = Word(
     word: "Ponovi",
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word upomoc = Word(
     word: 'Upomoć',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word pogledaj = Word(
     word: 'Pogledaj',
     imageAsset: imageAsset,
-    sentences: [Sentence(sentence: 'Ćao, kako si?')],
+    sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 
 List<Word> konverzacijaWords = [

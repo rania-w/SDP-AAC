@@ -1,20 +1,7 @@
-// ignore_for_file: prefer_const_constructors, unused_import
-import 'package:aac/components/buttons/custom_button.dart';
-// import 'package:aac/components/cards/card_template.dart';
-import 'package:aac/components/cards/cat_card.dart';
-import 'package:aac/components/cards/image_card.dart';
-import 'package:aac/components/cards/ud_settings_item.dart';
-import 'package:aac/components/cards/word_card.dart';
-import 'package:aac/components/word_title.dart';
-import 'package:aac/constants.dart';
-import 'package:aac/objects/category.dart';
-import 'package:aac/pages/add-edit/add_cat.dart';
-import 'package:aac/pages/c-w/categories.dart';
-import 'package:aac/pages/detailed_item_view.dart';
-import 'package:aac/pages/sentence_building.dart';
+// ignore_for_file: prefer_const_constructors
+import 'package:aac/components/buttons/sentence_button.dart';
+import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
-import 'package:aac/components/settings_item.dart';
-import 'package:aac/pages/settings.dart';
 
 class Test extends StatefulWidget {
   const Test({super.key});
@@ -28,6 +15,11 @@ class _TestState extends State<Test> {
 
   @override
   Widget build(BuildContext context) {
-    return AddCategory();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(
+        children: [SentenceButton(sentence: "Napravio sam rečenicu.")],
+      ),
+    );
   }
 }

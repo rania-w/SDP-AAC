@@ -14,7 +14,7 @@ class Word {
   String imageAsset;
 
   @HiveField(2)
-  List<Sentence>? sentences;
+  List<String>? sentences;
 
   @HiveField(3)
   String wordId;

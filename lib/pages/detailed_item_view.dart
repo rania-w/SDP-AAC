@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:aac/components/buttons/sentence_button.dart';
 import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
@@ -45,12 +46,13 @@ class _DetailedItemViewState extends State<DetailedItemView> {
             Column(
               children: [
                 for (var i in word.sentences)
-                  CustomButton(
-                    text: i.sentence,
-                    onPressed: () {},
-                    defaultColor: green,
-                    focusColor: greenF,
-                  )
+                  // CustomButton(
+                  //   text: i.sentence,
+                  //   onPressed: () {},
+                  //   defaultColor: green,
+                  //   focusColor: greenF,
+                  // )
+                  SentenceButton(sentence: i)
               ],
             ),
             CustomButton(
