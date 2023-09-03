@@ -53,6 +53,7 @@ class _EditCategoryState extends State<EditCategory> {
                   children: [
                     CustomImageInput(
                       imageAsset: data['category'].imageAsset,
+                      onPressed: () {},
                     ),
                     Expanded(
                       child: TextFormField(
@@ -105,7 +106,10 @@ class _EditCategoryState extends State<EditCategory> {
                       // image + text + add icon
                       Row(
                         children: [
-                          CustomImageInput(imageAsset: imageAsset),
+                          CustomImageInput(
+                            imageAsset: imageAsset,
+                            onPressed: () {},
+                          ),
                           Expanded(
                             child: TextFormField(
                               validator: (val) => val!.isEmpty

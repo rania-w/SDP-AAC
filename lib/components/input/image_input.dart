@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:aac/constants.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
 
 class CustomImageInput extends StatefulWidget {
   final String imageAsset;
-  const CustomImageInput({super.key, required this.imageAsset});
+  final VoidCallback onPressed;
+  const CustomImageInput(
+      {super.key, required this.imageAsset, required this.onPressed});
 
   @override
   State<CustomImageInput> createState() => _CustomImageInputState();
@@ -14,28 +16,15 @@ class CustomImageInput extends StatefulWidget {
 class _CustomImageInputState extends State<CustomImageInput> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20),
-      child: Stack(
-        children: <Widget>[
-          CircleAvatar(
-            radius: 60.0,
-            backgroundImage: AssetImage(imageAsset),
-            backgroundColor: white.withOpacity(1),
-          ),
-          Positioned(
-            bottom: 45.0,
-            right: 45.0,
-            child: IconButton(
-              icon: Icon(
-                Icons.camera_alt,
-                color: black,
-                size: 40,
-              ),
-              onPressed: () {},
-            ),
-          ),
-        ],
+    return Container(
+      margin: EdgeInsets.all(16),
+      child: IconButton(
+        onPressed: widget.onPressed,
+        icon: Image.file(
+          File(widget.imageAsset),
+          width: 160,
+          height: 160,
+        ),
       ),
     );
   }
