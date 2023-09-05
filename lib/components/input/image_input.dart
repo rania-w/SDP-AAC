@@ -20,8 +20,8 @@ class _CustomImageInputState extends State<CustomImageInput> {
       margin: EdgeInsets.all(16),
       child: IconButton(
         onPressed: widget.onPressed,
-        icon: Image.file(
-          File(widget.imageAsset),
+        icon: Image.asset(
+          widget.imageAsset,
           width: 160,
           height: 160,
         ),
