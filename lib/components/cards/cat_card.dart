@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/constants.dart';
+import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
 import '../../objects/category.dart';
 
@@ -31,8 +32,11 @@ class _CategoryCardState extends State<CategoryCard> {
           ),
         ),
         onPressed: widget.onPressed,
+        onLongPress: () async {
+          tts.speak(widget.category.title);
+        },
         child: Padding(
-          padding: EdgeInsets.all(24),
+          padding: EdgeInsets.all(20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

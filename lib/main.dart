@@ -30,10 +30,10 @@ void main() async {
     // boxSentence = await Hive.openBox<Sentence>('boxSentence');
 
     // temporary
-    await boxCategory.clear();
-    await boxUser.clear();
-    await boxWord.clear();
-    debugPrint("cleared");
+    // await boxCategory.clear();
+    // await boxUser.clear();
+    // await boxWord.clear();
+    // debugPrint("cleared");
 
     populate();
     // debugPrint(boxCategory.values.toString());

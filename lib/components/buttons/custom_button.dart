@@ -2,6 +2,7 @@
 
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:aac/services/tts.dart';
 
 ///
 /// issue with border color
@@ -30,6 +31,9 @@ class _CustomButtonState extends State<CustomButton> {
       margin: EdgeInsets.all(16),
       child: ElevatedButton(
         onPressed: widget.onPressed,
+        onLongPress: () async {
+          await tts.speak(widget.text);
+        },
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(

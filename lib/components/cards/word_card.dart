@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/constants.dart';
+import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
 import '../../objects/word.dart';
 
@@ -24,6 +25,9 @@ class _WordCardState extends State<WordCard> {
               states.contains(MaterialState.pressed) ? primaryF : primary),
         ),
         onPressed: widget.onPressed,
+        onLongPress: () async {
+          await tts.speak(widget.word.word);
+        },
         child: Padding(
           padding: EdgeInsets.all(24),
           child: Row(
