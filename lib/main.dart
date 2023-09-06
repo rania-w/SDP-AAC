@@ -56,8 +56,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: boxUser.isEmpty ? '/startup' : '/',
-      initialRoute: '/test',
+      initialRoute: boxUser.isEmpty ? '/startup' : '/',
+      // initialRoute: '/test',
       routes: {
         '/startup': (context) => Startup(),
         '/': (context) => Home(),

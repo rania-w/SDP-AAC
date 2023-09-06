@@ -15,16 +15,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Map data = {};
   int currentPageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
+    data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
+    if (data['index'] != null) currentPageIndex = data['index'];
     return boxCategory.isEmpty
         ? Startup()
         : Scaffold(
             appBar: AppBar(
               iconTheme: IconThemeData(color: Color(0xff393E41)),
               backgroundColor: Color(0xFFffecec),
+              centerTitle: true,
               title: const Text(
                 "AAC",
                 style:
@@ -49,17 +53,17 @@ class _HomeState extends State<Home> {
                 NavigationDestination(
                   selectedIcon: Icon(AACIcons.settingFilled),
                   icon: Icon(AACIcons.settings),
-                  label: 'Settings',
+                  label: 'Postavke',
                 ),
                 NavigationDestination(
                   selectedIcon: Icon(AACIcons.homeFilled),
                   icon: Icon(AACIcons.home),
-                  label: 'Home',
+                  label: 'Početna',
                 ),
                 NavigationDestination(
                   selectedIcon: Icon(AACIcons.puzzleFilled),
                   icon: Icon(AACIcons.puzzle),
-                  label: 'Speak',
+                  label: 'Izrazi se',
                 ),
               ],
             ),
