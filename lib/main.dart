@@ -43,7 +43,7 @@ void main() async {
   }
 
   try {
-    ttsConf();
+    ttsConf(1, 1, 1, 'hr-HR');
   } catch (e) {
     debugPrint("tts exception: $e");
   }
@@ -56,8 +56,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: boxUser.isEmpty ? '/startup' : '/',
-      // initialRoute: '/test',
+      // initialRoute: boxUser.isEmpty ? '/startup' : '/',
+      initialRoute: '/test',
       routes: {
         '/startup': (context) => Startup(),
         '/': (context) => Home(),

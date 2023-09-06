@@ -1,5 +1,6 @@
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
+import 'package:aac/palettes.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/services/tts.dart';
 
@@ -11,16 +12,25 @@ class VoiceSettings extends StatefulWidget {
 }
 
 class _VoiceSettingsState extends State<VoiceSettings> {
-  double volume = 1;
-  double pitch = 1;
-  double rate = 1;
+  double volume = ttsSettings['volume'];
+  double pitch = ttsSettings['pitch'];
+  double rate = ttsSettings['speechRate'];
+  String language = ttsSettings['language'];
 
   var languages = tts.getLanguages;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Palette().contrast),
+        backgroundColor: Palette().primary,
+        centerTitle: true,
+        title: Text(
+          "Glas",
+          style: heading,
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
@@ -141,7 +151,8 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                 CustomButton(
                   onPressed: () {
                     //reset to before state
-                    ttsConf(rate, volume, pitch, 'hr-HR');
+                    ttsConf(ttsSettings['speechRate'], ttsSettings['volume'],
+                        ttsSettings['pitch'], ttsSettings['language']);
                   },
                   text: 'Nazad',
                   defaultColor: white,
@@ -150,7 +161,11 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                 CustomButton(
                   onPressed: () {
                     //save changes
-                    ttsConf(rate, volume, pitch, 'hr-HR');
+                    ttsSettings['speechRate'] = rate;
+                    ttsSettings['volume'] = volume;
+                    ttsSettings['pitch'] = pitch;
+                    ttsSettings['language'] = language;
+                    ttsConf(rate, volume, pitch, language);
                   },
                   text: 'Spasi promjene',
                   defaultColor: green,

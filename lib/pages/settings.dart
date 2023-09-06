@@ -18,9 +18,9 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       body: ListView(
         children: [
-          Search(),
+          // Search(),
           SettingsItem(
-            name: "Edit categories",
+            name: "Kategorije",
             onPressed: () {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => UDCategories()));
