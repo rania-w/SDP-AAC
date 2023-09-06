@@ -1,3 +1,4 @@
+import 'package:aac/palettes.dart';
 import 'package:flutter/material.dart';
 
 const textInputDecoration = InputDecoration(
@@ -17,8 +18,8 @@ const black = Color(0xff393E41);
 const white = Color(0xfffcfcfc);
 const primary = Color(0xffFFECEC);
 const primaryF = Color(0xffDAB9B9);
-const green = Color(0xffC1CCAC);
-const greenF = Color(0xff9EAD7F);
+const green = Color(0xffbacfbf);
+const greenF = Color(0xffa8bcad);
 const grey = Color(0xff8E9999);
 const imageAsset = 'lib/resources/images/frog.jpeg';
 
@@ -41,3 +42,7 @@ const heading = TextStyle(
   fontSize: 24,
   fontFamily: 'Medium',
 );
+
+Palette defaultPalette = Palette();
+Palette bluePalette = Palette().setBlue();
+Palette highContrastPalette = Palette().setHighContrast();
