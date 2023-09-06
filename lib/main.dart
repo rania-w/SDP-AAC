@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:aac/objects/sentence.dart';
 import 'package:aac/objects/user.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
@@ -9,7 +8,6 @@ import 'package:aac/services/populate.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/test.dart';
 import 'package:aac/pages/home.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'services/boxes.dart';
 import 'services/tts.dart';
@@ -22,12 +20,10 @@ void main() async {
     Hive.registerAdapter(UserAdapter());
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(WordAdapter());
-    Hive.registerAdapter(SentenceAdapter());
 
     boxUser = await Hive.openBox<User>('boxUser');
     boxCategory = await Hive.openBox<Category>('boxCategory');
     boxWord = await Hive.openBox<Word>('boxWord');
-    // boxSentence = await Hive.openBox<Sentence>('boxSentence');
 
     // temporary
     // await boxCategory.clear();
@@ -43,7 +39,9 @@ void main() async {
   }
 
   try {
-    ttsConf(1, 1, 1, 'hr-HR');
+    if (boxUser.isEmpty) {
+      ttsConf(1, 1, 1, 'hr-HR');
+    }
   } catch (e) {
     debugPrint("tts exception: $e");
   }

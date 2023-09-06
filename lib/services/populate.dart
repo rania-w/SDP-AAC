@@ -1,8 +1,8 @@
 import 'package:aac/objects/category.dart';
-import 'package:aac/objects/sentence.dart';
 import 'package:aac/objects/word.dart';
 import 'package:aac/services/boxes.dart';
-import '../constants.dart';
+import 'package:aac/constants.dart';
+import 'package:flutter/material.dart';
 
 Category favs = Category(imageAsset: imageAsset, title: "Favs", words: []);
 Category emocije =
@@ -133,6 +133,6 @@ void populate() {
       }
     }
   } catch (e) {
-    print("populate exception: " + e.toString());
+    debugPrint("populate exception: $e");
   }
 }

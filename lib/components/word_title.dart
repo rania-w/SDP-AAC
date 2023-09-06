@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
-///hot mess
-
 class WordTitle extends StatelessWidget {
   final String title;
 

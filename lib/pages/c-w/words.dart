@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/word_card.dart';
+import 'package:aac/constants.dart';
 import 'package:aac/pages/detailed_item_view.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
@@ -28,14 +29,7 @@ class _WordsState extends State<Words> {
     // late var wordList = boxWord.values;
 
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Color(0xff393E41)),
-        backgroundColor: Color(0xFFffecec),
-        title: const Text(
-          "AAC",
-          style: TextStyle(fontFamily: 'Medium', color: Color(0xff393E41)),
-        ),
-      ),
+      appBar: appBar('kategorija'),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: ListView(

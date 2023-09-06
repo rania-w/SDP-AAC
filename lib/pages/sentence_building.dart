@@ -5,8 +5,6 @@ import 'package:aac/components/input/custom_input.dart';
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 
-/// kako napraviti da ikonica ostane pri desnoj strani
-
 class SentenceBuilding extends StatefulWidget {
   const SentenceBuilding({super.key});
 
@@ -40,7 +38,7 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                   decoration: BoxDecoration(
                       color: primary,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: primaryF, width: 1.5)),
+                      border: Border.all(color: primaryClicked, width: 1.5)),
                   margin: EdgeInsets.symmetric(horizontal: 4),
                   padding: EdgeInsets.all(8),
                   child: Row(
@@ -54,7 +52,7 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                         },
                         icon: Icon(
                           Icons.close,
-                          color: black,
+                          color: contrast,
                         ),
                       ),
                     ],
@@ -71,8 +69,8 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
         CustomButton(
           text: "Save sentence",
           onPressed: () {},
-          defaultColor: green,
-          focusColor: greenF,
+          defaultColor: accent,
+          focusColor: accentClicked,
         ),
       ],
     );

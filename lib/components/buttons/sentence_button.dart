@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/services/tts.dart';
@@ -23,14 +22,13 @@ class _SentenceButtonState extends State<SentenceButton> {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(width: 2, color: green),
+          bottom: BorderSide(width: 2, color: accent),
         ),
       ),
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor:
-              MaterialStateProperty.all<Color>(Colors.red.withOpacity(0)),
-          // Set the background color to red
+              MaterialStateProperty.all<Color>(white.withOpacity(0)),
           shadowColor: MaterialStateProperty.all<Color>(white.withOpacity(0)),
         ),
         onPressed: speak,

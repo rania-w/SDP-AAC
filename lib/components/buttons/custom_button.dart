@@ -4,10 +4,6 @@ import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/services/tts.dart';
 
-///
-/// issue with border color
-///
-
 class CustomButton extends StatefulWidget {
   final String text;
   final VoidCallback onPressed;
@@ -37,14 +33,12 @@ class _CustomButtonState extends State<CustomButton> {
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0), // Set border radius
-              side: BorderSide(
-                  color: widget.focusColor, width: 1.5), // Set border color
+              borderRadius: BorderRadius.circular(10.0),
+              side: BorderSide(color: widget.focusColor, width: 1.5),
             ),
           ),
           padding:
               MaterialStateProperty.resolveWith((states) => EdgeInsets.all(20)),
-          // textStyle: MaterialStateProperty.resolveWith((states) => paragraph),
           backgroundColor: MaterialStateProperty.resolveWith((states) =>
               states.contains(MaterialState.pressed)
                   ? widget.focusColor

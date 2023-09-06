@@ -1,5 +1,16 @@
-import 'package:aac/palettes.dart';
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+
+const Color grey = Color(0xff8E9999);
+const Color black = Color(0xff393E41);
+const Color white = Color(0xfffcfcfc);
+
+Color primary = Color(0xffFFECEC);
+Color primaryClicked = Color(0xffDAB9B9);
+Color accent = Color(0xffbacfbf);
+Color accentClicked = Color(0xffa8bcad);
+Color contrast = black;
 
 const textInputDecoration = InputDecoration(
   fillColor: Colors.white,
@@ -14,23 +25,19 @@ const textInputDecoration = InputDecoration(
   labelStyle: TextStyle(color: grey),
 );
 
-const black = Color(0xff393E41);
-const white = Color(0xfffcfcfc);
-const primary = Color(0xffFFECEC);
-const primaryF = Color(0xffDAB9B9);
-const green = Color(0xffbacfbf);
-const greenF = Color(0xffa8bcad);
-const grey = Color(0xff8E9999);
 const imageAsset = 'lib/resources/images/frog.jpeg';
 
-var appBar = AppBar(
-  backgroundColor: primary,
-  iconTheme: IconThemeData(color: black),
-  title: Text(
-    "AAC",
-    style: heading.copyWith(fontFamily: 'Medium'),
-  ),
-);
+AppBar appBar(String title) {
+  return AppBar(
+    backgroundColor: primary,
+    centerTitle: true,
+    title: Text(
+      title,
+      style: heading,
+    ),
+    iconTheme: IconThemeData(color: contrast),
+  );
+}
 
 const paragraph = TextStyle(
   color: black,
@@ -42,7 +49,3 @@ const heading = TextStyle(
   fontSize: 24,
   fontFamily: 'Medium',
 );
-
-Palette defaultPalette = Palette();
-Palette bluePalette = Palette().setBlue();
-Palette highContrastPalette = Palette().setHighContrast();

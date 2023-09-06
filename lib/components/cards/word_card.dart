@@ -2,7 +2,7 @@
 import 'package:aac/constants.dart';
 import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
-import '../../objects/word.dart';
+import 'package:aac/objects/word.dart';
 
 class WordCard extends StatefulWidget {
   final Word word;
@@ -22,7 +22,9 @@ class _WordCardState extends State<WordCard> {
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith((states) =>
-              states.contains(MaterialState.pressed) ? primaryF : primary),
+              states.contains(MaterialState.pressed)
+                  ? primaryClicked
+                  : primary),
         ),
         onPressed: widget.onPressed,
         onLongPress: () async {

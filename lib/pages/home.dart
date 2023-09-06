@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:aac/constants.dart';
 import 'package:aac/pages/startup.dart';
 import 'package:aac/resources/a_a_c_icons_icons.dart';
 import 'package:flutter/material.dart';
@@ -25,16 +26,7 @@ class _HomeState extends State<Home> {
     return boxCategory.isEmpty
         ? Startup()
         : Scaffold(
-            appBar: AppBar(
-              iconTheme: IconThemeData(color: Color(0xff393E41)),
-              backgroundColor: Color(0xFFffecec),
-              centerTitle: true,
-              title: const Text(
-                "AAC",
-                style:
-                    TextStyle(fontFamily: 'Medium', color: Color(0xff393E41)),
-              ),
-            ),
+            appBar: appBar(''),
             body: Padding(
                 padding: EdgeInsets.all(20),
                 child: <Widget>[

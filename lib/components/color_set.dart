@@ -1,12 +1,21 @@
-import 'package:aac/palettes.dart';
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
 class ColorSet extends StatefulWidget {
-  final Palette palette;
+  final Color primary;
+  final Color accent;
+  final Color contrast;
+  final VoidCallback onPressed;
 
-  const ColorSet({super.key, required this.palette});
+  const ColorSet(
+      {super.key,
+      required this.primary,
+      required this.accent,
+      required this.contrast,
+      required this.onPressed});
 
   @override
   State<ColorSet> createState() => _ColorSetState();
@@ -30,25 +39,22 @@ class _ColorSetState extends State<ColorSet> {
             ),
           ),
         ),
-        onPressed: () {
-          // change the palette
-        },
+        onPressed: widget.onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width *
-                  0.1, // Adjust the size as needed
+              width: MediaQuery.of(context).size.width * 0.1,
               height: 100,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: widget.palette.primary,
+                color: widget.primary,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 4,
                     blurRadius: 6,
-                    offset: Offset(0, 3), // Adjust the shadow's offset
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),
@@ -59,30 +65,29 @@ class _ColorSetState extends State<ColorSet> {
               height: 100,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: widget.palette.accent,
+                color: widget.accent,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 4,
                     blurRadius: 6,
-                    offset: Offset(0, 3), // Adjust the shadow's offset
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width *
-                  0.1, // Adjust the size as needed
+              width: MediaQuery.of(context).size.width * 0.1,
               height: 100,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: widget.palette.contrast,
+                color: widget.contrast,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 4,
                     blurRadius: 6,
-                    offset: Offset(0, 3), // Adjust the shadow's offset
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),

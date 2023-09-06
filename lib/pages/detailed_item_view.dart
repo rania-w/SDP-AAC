@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:aac/components/buttons/sentence_button.dart';
 import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/pages/home.dart';
-import 'package:aac/pages/sentence_building.dart';
-import 'package:aac/palettes.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/components/word_title.dart';
@@ -28,15 +26,7 @@ class _DetailedItemViewState extends State<DetailedItemView> {
     data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
     late var word = boxWord.get(data['wordId']);
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Palette().contrast),
-        backgroundColor: Palette().primary,
-        centerTitle: true,
-        title: Text(
-          word.word,
-          style: heading,
-        ),
-      ),
+      appBar: appBar(word.word),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -62,8 +52,8 @@ class _DetailedItemViewState extends State<DetailedItemView> {
                     builder: (context) => Home(),
                     settings: RouteSettings(arguments: {'index': 2})));
               },
-              defaultColor: green,
-              focusColor: greenF,
+              defaultColor: accent,
+              focusColor: accentClicked,
             )
           ],
         ),

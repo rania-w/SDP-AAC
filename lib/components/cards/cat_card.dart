@@ -1,19 +1,15 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:aac/constants.dart';
 import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
 import '../../objects/category.dart';
+import 'package:aac/constants.dart';
 
 class CategoryCard extends StatefulWidget {
   final Category category;
-  // final String route;
   final VoidCallback onPressed;
 
   const CategoryCard(
-      {super.key,
-      required this.category,
-      // required this.route,
-      required this.onPressed});
+      {super.key, required this.category, required this.onPressed});
 
   @override
   State<CategoryCard> createState() => _CategoryCardState();
@@ -27,8 +23,9 @@ class _CategoryCardState extends State<CategoryCard> {
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith(
-            (states) =>
-                states.contains(MaterialState.pressed) ? primaryF : primary,
+            (states) => states.contains(MaterialState.pressed)
+                ? primaryClicked
+                : primary,
           ),
         ),
         onPressed: widget.onPressed,

@@ -18,15 +18,21 @@ class UserAdapter extends TypeAdapter<User> {
     };
     return User(
       nickname: fields[0] as String,
+      colorSettings: (fields[1] as Map).cast<dynamic, dynamic>(),
+      voiceSettings: (fields[2] as Map).cast<dynamic, dynamic>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, User obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.nickname);
+      ..write(obj.nickname)
+      ..writeByte(1)
+      ..write(obj.colorSettings)
+      ..writeByte(2)
+      ..write(obj.voiceSettings);
   }
 
   @override

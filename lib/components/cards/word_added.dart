@@ -19,13 +19,11 @@ class _WordAddedState extends State<WordAdded> {
     return Container(
       decoration: BoxDecoration(
         color: primary,
-        border: Border.all(color: primaryF, width: 2),
+        border: Border.all(color: primaryClicked, width: 2),
         borderRadius: BorderRadius.circular(10),
       ),
-      // color: primary,
       margin: EdgeInsets.all(16),
       child: Padding(
-        // padding: EdgeInsets.all(12),
         padding: EdgeInsets.fromLTRB(20, 0, 0, 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

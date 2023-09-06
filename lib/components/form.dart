@@ -16,52 +16,53 @@ class _CustomFormState extends State<CustomForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            TextFormField(
-              initialValue: widget.initialValue,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return 'Polje ne može biti prazno';
-                }
-                return null;
-              },
-              decoration: InputDecoration(
-                label: Text("Name", style: paragraph),
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            initialValue: widget.initialValue,
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Polje ne može biti prazno';
+              }
+              return null;
+            },
+            decoration: InputDecoration(
+              label: Text("Name", style: paragraph),
+            ),
+          ),
+          Placeholder(),
+          CustomButton(
+            text: "Spasi promjene",
+            onPressed: () {},
+            defaultColor: accent,
+            focusColor: accentClicked,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomButton(
+                text: "Nazad",
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                defaultColor: white,
+                focusColor: accentClicked,
               ),
-            ),
-            Placeholder(),
-            CustomButton(
-              text: "Spasi promjene",
-              onPressed: () {},
-              defaultColor: green,
-              focusColor: greenF,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomButton(
-                  text: "Nazad",
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  defaultColor: white,
-                  focusColor: greenF,
-                ),
-                CustomButton(
-                  text: "Spasi promjene",
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // Process data.
-                    }
-                  },
-                  defaultColor: green,
-                  focusColor: greenF,
-                ),
-              ],
-            )
-          ],
-        ));
+              CustomButton(
+                text: "Spasi promjene",
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Process data.
+                  }
+                },
+                defaultColor: accent,
+                focusColor: accentClicked,
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }

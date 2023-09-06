@@ -18,14 +18,7 @@ class _UDCategoriesState extends State<UDCategories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primary,
-        iconTheme: IconThemeData(color: black),
-        title: const Text(
-          "AAC",
-          style: TextStyle(fontFamily: 'Medium', color: black),
-        ),
-      ),
+      appBar: appBar('Postavke'),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: ListView(
@@ -43,10 +36,10 @@ class _UDCategoriesState extends State<UDCategories> {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => AddCategory()));
         },
-        backgroundColor: green,
+        backgroundColor: accent,
         child: Icon(
           Icons.add,
-          color: black,
+          color: contrast,
         ),
       ),
     );

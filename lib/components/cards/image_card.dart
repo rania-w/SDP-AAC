@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-//no idea what this actually looks like
-
 class ImageCard extends StatelessWidget {
   final String imageAsset;
 

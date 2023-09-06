@@ -7,8 +7,17 @@ part 'user.g.dart';
 
 @HiveType(typeId: 1)
 class User {
-  User({required this.nickname});
-
   @HiveField(0)
   String nickname;
+
+  @HiveField(1)
+  Map colorSettings;
+
+  @HiveField(2)
+  Map voiceSettings;
+
+  User(
+      {required this.nickname,
+      required this.colorSettings,
+      required this.voiceSettings});
 }

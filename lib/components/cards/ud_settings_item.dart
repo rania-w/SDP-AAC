@@ -32,10 +32,13 @@ class _UDSettingsItemState extends State<UDSettingsItem> {
               CategoryCard(
                 category: widget.category,
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
                       builder: (context) => EditCategory(),
                       settings: RouteSettings(
-                          arguments: {'category': widget.category})));
+                          arguments: {'category': widget.category}),
+                    ),
+                  );
                 },
               )
             ],

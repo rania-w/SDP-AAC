@@ -3,8 +3,6 @@ import 'package:aac/constants.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 
-/// zasto ne nadje stvari kako treba??
-
 class CustomInput extends StatefulWidget {
   final Function(String) onSelected;
 
