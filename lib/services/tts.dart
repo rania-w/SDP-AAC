@@ -1,7 +1,7 @@
 import 'package:flutter_tts/flutter_tts.dart';
 
 FlutterTts tts = FlutterTts();
-Map ttsSettings = {};
+Map<String, dynamic> ttsSettings = {};
 
 void ttsConf(
     double speechRate, double volume, double pitch, String language) async {

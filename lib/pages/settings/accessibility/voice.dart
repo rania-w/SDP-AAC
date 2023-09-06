@@ -1,6 +1,5 @@
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
-import 'package:aac/palettes.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/services/tts.dart';
 
@@ -23,8 +22,8 @@ class _VoiceSettingsState extends State<VoiceSettings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Palette().contrast),
-        backgroundColor: Palette().primary,
+        iconTheme: IconThemeData(color: contrast),
+        backgroundColor: primary,
         centerTitle: true,
         title: Text(
           "Glas",
@@ -47,7 +46,7 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                     ),
                   ),
                   Slider(
-                    activeColor: green,
+                    activeColor: accent,
                     inactiveColor: grey.withOpacity(0.2),
                     min: 0.0,
                     max: 1.0,
@@ -79,7 +78,7 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                     ),
                   ),
                   Slider(
-                    activeColor: green,
+                    activeColor: accent,
                     inactiveColor: grey.withOpacity(0.2),
                     min: 0.5,
                     max: 2.0,
@@ -111,7 +110,7 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                     ),
                   ),
                   Slider(
-                    activeColor: green,
+                    activeColor: accent,
                     inactiveColor: grey.withOpacity(0.2),
                     min: 0.01,
                     max: 1.0,
@@ -144,7 +143,7 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                 await tts.setSpeechRate(rate);
                 await tts.speak('Ovo je testna izjava');
               },
-              focusColor: primaryF,
+              focusColor: primaryClicked,
             ),
             Row(
               children: [
@@ -156,7 +155,7 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                   },
                   text: 'Nazad',
                   defaultColor: white,
-                  focusColor: greenF,
+                  focusColor: accentClicked,
                 ),
                 CustomButton(
                   onPressed: () {
@@ -168,8 +167,8 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                     ttsConf(rate, volume, pitch, language);
                   },
                   text: 'Spasi promjene',
-                  defaultColor: green,
-                  focusColor: greenF,
+                  defaultColor: accent,
+                  focusColor: accentClicked,
                 ),
               ],
             ),

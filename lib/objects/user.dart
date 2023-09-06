@@ -10,14 +10,7 @@ class User {
   @HiveField(0)
   String nickname;
 
-  @HiveField(1)
-  Map colorSettings;
-
-  @HiveField(2)
-  Map voiceSettings;
-
-  User(
-      {required this.nickname,
-      required this.colorSettings,
-      required this.voiceSettings});
+  User({
+    required this.nickname,
+  });
 }

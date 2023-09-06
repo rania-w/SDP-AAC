@@ -24,7 +24,7 @@ class _StartupState extends State<Startup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar,
+      appBar: appBar('Dobrodošli!'),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(children: [
@@ -57,7 +57,11 @@ class _StartupState extends State<Startup> {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => Home(),
                       ));
-                      boxUser.put('user_key', User(nickname: nickname));
+                      boxUser.put(
+                          'user_key',
+                          User(
+                            nickname: nickname,
+                          ));
                       debugPrint(boxUser.values.toString());
                     } else {
                       setState(() {
@@ -65,8 +69,8 @@ class _StartupState extends State<Startup> {
                       });
                     }
                   },
-                  defaultColor: green,
-                  focusColor: greenF,
+                  defaultColor: accent,
+                  focusColor: accentClicked,
                 ),
               ],
             ),
