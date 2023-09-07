@@ -18,6 +18,7 @@ class _WordCardState extends State<WordCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(vertical: 24),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -31,7 +32,7 @@ class _WordCardState extends State<WordCard> {
           await tts.speak(widget.word.word);
         },
         child: Padding(
-          padding: EdgeInsets.all(24),
+          padding: EdgeInsets.all(16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

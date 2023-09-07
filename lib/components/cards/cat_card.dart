@@ -7,9 +7,13 @@ import 'package:aac/constants.dart';
 class CategoryCard extends StatefulWidget {
   final Category category;
   final VoidCallback onPressed;
+  final double width;
 
   const CategoryCard(
-      {super.key, required this.category, required this.onPressed});
+      {super.key,
+      required this.category,
+      required this.onPressed,
+      required this.width});
 
   @override
   State<CategoryCard> createState() => _CategoryCardState();
@@ -19,7 +23,7 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.62,
+      width: widget.width,
       margin: EdgeInsets.symmetric(vertical: 24),
       child: ElevatedButton(
         style: ButtonStyle(

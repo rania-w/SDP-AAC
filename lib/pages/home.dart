@@ -27,13 +27,13 @@ class _HomeState extends State<Home> {
         ? Startup()
         : Scaffold(
             appBar: appBar(''),
-            body: Padding(
-                padding: EdgeInsets.all(20),
+            body: Container(
+                // padding: EdgeInsets.all(20),
                 child: <Widget>[
-                  Settings(),
-                  Categories(),
-                  SentenceBuilding(),
-                ][currentPageIndex]),
+              Settings(),
+              Categories(),
+              SentenceBuilding(),
+            ][currentPageIndex]),
             bottomNavigationBar: NavigationBar(
               onDestinationSelected: (int index) {
                 setState(() {

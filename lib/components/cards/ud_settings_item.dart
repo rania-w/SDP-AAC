@@ -30,6 +30,7 @@ class _UDSettingsItemState extends State<UDSettingsItem> {
             children: [
               IconButton(onPressed: () {}, icon: Icon(Icons.drag_indicator)),
               CategoryCard(
+                width: MediaQuery.of(context).size.width * 0.62,
                 category: widget.category,
                 onPressed: () {
                   Navigator.of(context).push(
