@@ -5,6 +5,7 @@ import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/pages/home.dart';
 import 'package:aac/services/boxes.dart';
+import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/components/word_title.dart';
 
@@ -25,6 +26,7 @@ class _DetailedItemViewState extends State<DetailedItemView> {
   Widget build(BuildContext context) {
     data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
     late var word = boxWord.get(data['wordId']);
+    // late var categoryId = word.categoryId;
     return Scaffold(
       appBar: appBar(word.word),
       body: Padding(
@@ -32,14 +34,15 @@ class _DetailedItemViewState extends State<DetailedItemView> {
         child: ListView(
           children: [
             WordTitle(
-              // title: data['title'], // povuci od word
               title: word.word,
+              ttsButton: () async {
+                await tts.speak(word.word);
+              },
             ),
             ImageCard(imageAsset: word.imageAsset),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
             ),
-            //povuci od word
             Column(
               children: [
                 for (var i in word.sentences) SentenceButton(sentence: i)

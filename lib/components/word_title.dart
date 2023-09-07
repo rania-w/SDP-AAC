@@ -1,11 +1,24 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:aac/constants.dart';
+import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 
-class WordTitle extends StatelessWidget {
+class WordTitle extends StatefulWidget {
   final String title;
+  final VoidCallback ttsButton;
+  // final VoidCallback favButton;
 
-  const WordTitle({super.key, required this.title});
+  const WordTitle({
+    super.key,
+    required this.title,
+    required this.ttsButton,
+  });
 
+  @override
+  State<WordTitle> createState() => _WordTitleState();
+}
+
+class _WordTitleState extends State<WordTitle> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,18 +28,18 @@ class WordTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            title,
+            widget.title,
             style: TextStyle(
                 fontSize: 24, fontFamily: 'Medium', color: Color(0xFF393E41)),
           ),
           Material(
             color: Colors.white.withOpacity(0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: widget.ttsButton,
               icon: Icon(
-                Icons.star_border_outlined,
+                Icons.volume_up,
                 size: 30,
-                color: Color(0xff393E41),
+                color: contrast,
               ),
             ),
           ),
