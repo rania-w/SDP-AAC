@@ -35,7 +35,6 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
       padding: EdgeInsets.all(20),
       child: ListView(
         children: [
@@ -49,8 +48,13 @@ class _CategoriesState extends State<Categories> {
                 TextStyle(color: grey, fontFamily: 'Light')),
             trailing: [
               IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {},
+                icon: const Icon(Icons.close),
+                onPressed: () {
+                  setState(() {
+                    filtered = categories.toList();
+                    _searchController.text = '';
+                  });
+                },
               ),
             ],
             backgroundColor: MaterialStateProperty.all(Color(0xFFFCFCFC)),
@@ -67,9 +71,10 @@ class _CategoriesState extends State<Categories> {
                 category: i,
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => Words(),
-                      settings: RouteSettings(
-                          arguments: {'categoryId': i.categoryId})));
+                      builder: (context) => Words(
+                            categoryId: i.categoryId,
+                          ),
+                      settings: RouteSettings()));
                 },
               );
             }).toList(),
