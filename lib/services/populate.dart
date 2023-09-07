@@ -4,13 +4,12 @@ import 'package:aac/services/boxes.dart';
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 
-Category favs = Category(imageAsset: imageAsset, title: "Favs", words: []);
 Category emocije =
     Category(imageAsset: imageAsset, title: 'Emocije', words: []);
 Category konverzacija =
     Category(imageAsset: imageAsset, title: 'Konverzacija', words: []);
 
-List<Category> defaultCategories = [favs, emocije, konverzacija];
+List<Category> defaultCategories = [emocije, konverzacija];
 
 List<Word> favWords = [];
 Word sreca = Word(
@@ -123,7 +122,6 @@ void populate() {
   try {
     emocije.setWords = emocijeWords;
     konverzacija.setWords = konverzacijaWords;
-    favs.setWords = favWords;
     if (boxCategory.isEmpty) {
       for (var category in defaultCategories) {
         boxCategory.put(category.categoryId, category);
