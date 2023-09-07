@@ -19,6 +19,7 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width * 0.62,
       margin: EdgeInsets.symmetric(vertical: 24),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -33,9 +34,9 @@ class _CategoryCardState extends State<CategoryCard> {
           tts.speak(widget.category.title);
         },
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(16),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 margin: EdgeInsets.only(right: 20),
@@ -45,10 +46,12 @@ class _CategoryCardState extends State<CategoryCard> {
                   width: 52,
                 ),
               ),
-              Text(
-                widget.category.title,
-                style: paragraph,
-              ),
+              Expanded(
+                child: Text(
+                  widget.category.title,
+                  style: paragraph,
+                ),
+              )
             ],
           ),
         ),
