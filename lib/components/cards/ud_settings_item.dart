@@ -9,8 +9,10 @@ import 'package:aac/services/boxes.dart';
 
 class UDSettingsItem extends StatefulWidget {
   final Category category;
+  final VoidCallback onPressed;
 
-  const UDSettingsItem({super.key, required this.category});
+  const UDSettingsItem(
+      {super.key, required this.category, required this.onPressed});
 
   @override
   State<UDSettingsItem> createState() => _UDSettingsItemState();
@@ -33,24 +35,21 @@ class _UDSettingsItemState extends State<UDSettingsItem> {
                 width: MediaQuery.of(context).size.width * 0.62,
                 category: widget.category,
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => EditCategory(),
-                      settings: RouteSettings(
-                          arguments: {'category': widget.category}),
-                    ),
-                  );
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     builder: (context) => EditCategory(),
+                  //     settings: RouteSettings(
+                  //         arguments: {'category': widget.category}),
+                  //   ),
+                  // );
                 },
               )
             ],
           ),
           IconButton(
-              onPressed: () {
-                setState(() {
-                  boxCategory.delete(widget.category.categoryId);
-                });
-              },
-              icon: Icon(Icons.delete))
+            onPressed: widget.onPressed,
+            icon: Icon(Icons.delete),
+          ),
         ],
       ),
     );

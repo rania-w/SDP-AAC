@@ -3,6 +3,7 @@
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
+import 'package:aac/pages/add-edit/add_word.dart';
 import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +20,15 @@ class _AddCategoryState extends State<AddCategory> {
   final _formKey = GlobalKey<FormState>();
   String catTitle = '';
   String img = imageAsset;
+  String receivedBack = '';
+  var temp;
 
   @override
   Widget build(BuildContext context) {
+    Category category =
+        Category(imageAsset: imageAsset, title: catTitle, words: []);
     return Scaffold(
-      appBar: AppBar(
-        title: Text("test"),
-      ),
+      appBar: appBar("Nova kategorija"),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -98,9 +101,27 @@ class _AddCategoryState extends State<AddCategory> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () {
+                        onPressed: () async {
                           /// add word page
                           /// salje probz argument categoryId
+                          temp = await Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => AddWord(
+                                category: category,
+                              ),
+                            ),
+                          );
+                          setState(() {
+                            receivedBack = temp.categoryId;
+                          });
+
+                          // if (receivedBack != '') {
+                          //   boxCategory.put(receivedBack, temp);
+                          // } else {
+                          //   boxCategory.put(category.categoryId, category);
+                          // }
+                          debugPrint(
+                              "deb add cat: id: ${category.categoryId}; title: ${category.title}");
                         },
                         child: Text(
                           "Riječi",
@@ -129,12 +150,15 @@ class _AddCategoryState extends State<AddCategory> {
                         text: "Spasi promjene",
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            Category category = Category(
-                                imageAsset: img, title: catTitle, words: []);
-                            boxCategory.put(category.categoryId, category);
-                            debugPrint("deb img: ${category.imageAsset}");
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => UDCategories()));
+                            category.imageAsset = img;
+                            category.title = catTitle;
+                            // problem
+                            if (receivedBack != '') {
+                              boxCategory.put(receivedBack, temp);
+                            } else {
+                              boxCategory.put(category.categoryId, category);
+                            }
+                            Navigator.pop(context);
                           }
                         },
                         defaultColor: accent,
