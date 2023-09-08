@@ -1,208 +1,191 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/components/buttons/custom_button.dart';
-import 'package:aac/components/cards/word_added.dart';
-import 'package:aac/components/input/image_input.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
-import 'package:aac/objects/word.dart';
+import 'package:aac/pages/add-edit/edit_word.dart';
 import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_grid/responsive_grid.dart';
 
 class EditCategory extends StatefulWidget {
-  const EditCategory({super.key});
+  final String categoryId;
+  const EditCategory({super.key, required this.categoryId});
 
   @override
   State<EditCategory> createState() => _EditCategoryState();
 }
 
 class _EditCategoryState extends State<EditCategory> {
+  late Category category = boxCategory.get(widget.categoryId);
   final _formKey = GlobalKey<FormState>();
-  String error = '';
-  String catTitle = '';
-  late Word word;
-  List<Word> wordList = [];
-  bool form = true;
-  bool button = false;
-  Map data = {};
-  late Category category;
+  String title = '';
+  String img = imageAsset;
+  List words = [];
+  String receivedBack = '';
+  var temp;
+  bool showIcons = false;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      title = category.title;
+      img = category.imageAsset;
+      words = category.words;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
-    category = data['category'];
-    wordList.addAll(category.words);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFffecec),
-        iconTheme: IconThemeData(color: black),
-        title: const Text(
-          "AAC",
-          style: heading,
-        ),
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(20),
-        children: [
-          Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    CustomImageInput(
-                      imageAsset: data['category'].imageAsset,
-                      onPressed: () {},
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        initialValue: data['category'].title,
-                        validator: (val) =>
-                            val!.isEmpty ? 'Polje ne može biti prazno' : null,
-                        onChanged: (val) {
-                          setState(() => catTitle = val);
-                        },
-                        decoration:
-                            textInputDecoration.copyWith(label: Text("Naziv")),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Visibility(
-                  visible: !button,
-                  child: CustomButton(
-                      text: "Dodaj riječi",
-                      onPressed: () {
-                        setState(() {
-                          form = false;
-                          button = true;
-                        });
-                      },
-                      defaultColor: primary,
-                      focusColor: primaryF),
-                ),
-                Visibility(
-                  visible: !form,
-                  child: Column(
+      appBar: appBar(category.title),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: ListView(
+          padding: EdgeInsets.all(20),
+          children: [
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Row(
                     children: [
-                      // close button
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                              onPressed: (() {
-                                setState(() {
-                                  form = true;
-                                  button = false;
-                                });
-                              }),
-                              icon: Icon(Icons.close))
-                        ],
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        child: IconButton(
+                          iconSize: 52,
+                          icon: Image.asset(img),
+                          onPressed: () {
+                            setState(() {
+                              showIcons = true;
+                            });
+                          },
+                        ),
                       ),
-                      // image + text + add icon
-                      Row(
-                        children: [
-                          CustomImageInput(
-                            imageAsset: imageAsset,
-                            onPressed: () {},
+                      Container(
+                        alignment: Alignment(1, 0),
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        child: TextFormField(
+                          initialValue: title,
+                          validator: (val) =>
+                              val!.isEmpty ? 'Polje ne može biti prazno' : null,
+                          onChanged: (val) {
+                            setState(() => title = val);
+                          },
+                          decoration: textInputDecoration.copyWith(
+                            label: Text("Naziv"),
                           ),
-                          Expanded(
-                            child: TextFormField(
-                              validator: (val) => val!.isEmpty
-                                  ? 'Polje ne može biti prazno'
-                                  : null,
-                              onChanged: (val) {
-                                word = Word(
-                                    imageAsset: imageAsset,
-                                    word: val,
-                                    sentences: [],
-                                    categoryId: data['category'].categoryId);
-                                // setState(() => word.word = val);
-                              },
-                              decoration: textInputDecoration.copyWith(
-                                  label: Text("Riječ")),
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                setState(() {
-                                  wordList.add(word);
-                                });
-                              }
-                            },
-                            icon: Icon(Icons.add),
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
-                ),
-                Row(
-                  children: [
-                    Visibility(
-                      visible: wordList.isNotEmpty,
-                      child: IconButton(
-                        onPressed: () {
+                  Visibility(
+                    visible: showIcons,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          width: MediaQuery.of(context).size.width * 0.77,
+
+                          /// il je do ovoga
+                          child: ResponsiveGridList(
+                            desiredItemWidth: 100,
+                            children: images.entries.map((e) {
+                              return IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    img = e.value;
+                                  });
+                                },
+                                icon: Image.asset(e.value),
+                                iconSize: 48,
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              showIcons = false;
+                            });
+                          },
+                          icon: Icon(Icons.close),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () async {
+                          temp = await Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => EditWord(
+                                category: category,
+                              ),
+                            ),
+                          );
                           setState(() {
-                            wordList.clear();
+                            receivedBack = temp.categoryId;
                           });
                         },
-                        icon: Icon(Icons.delete),
+                        child: Text(
+                          "Riječi",
+                          style: paragraph.copyWith(
+                            decoration: TextDecoration.underline,
+                            fontSize: 20,
+                          ),
+                        ),
                       ),
-                    ),
-                    for (var i in wordList)
-                      WordAdded(
-                        word: i,
+                    ],
+                  ),
+
+                  /// buttons
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomButton(
+                        text: "Nazad",
                         onPressed: () {
-                          setState(() {
-                            wordList.remove(i);
-                          });
+                          Navigator.pop(context);
                         },
+                        defaultColor: white,
+                        focusColor: accentClicked,
                       ),
-                  ],
-                ),
-                //buttons
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomButton(
-                      text: "Nazad",
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      defaultColor: white,
-                      focusColor: greenF,
-                    ),
-                    CustomButton(
-                      text: "Spasi",
-                      onPressed: () {
-                        // funkcija za add/update
-                        if (_formKey.currentState!.validate()) {
-                          category.imageAsset = imageAsset;
-                          category.title = catTitle;
-                          category.words = wordList;
-                          boxCategory.put(category.categoryId, category);
-                          for (var i in wordList) {
-                            boxWord.put(i.wordId, i);
+                      CustomButton(
+                        text: "Spasi promjene",
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            category.imageAsset = img;
+                            category.title = title;
+                            if (receivedBack != '') {
+                              boxCategory.put(receivedBack, temp);
+                            } else {
+                              boxCategory.put(category.categoryId, category);
+                            }
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) => UDCategories()));
                           }
-                        }
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: ((context) => UDCategories())));
-                      },
-                      defaultColor: green,
-                      focusColor: greenF,
-                    )
-                  ],
-                ),
-              ],
+                        },
+                        defaultColor: accent,
+                        focusColor: accentClicked,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

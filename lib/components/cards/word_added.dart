@@ -48,9 +48,11 @@ class _WordAddedState extends State<WordAdded> {
                     width: 52,
                   ),
                 ),
-                Text(
-                  widget.word.word,
-                  style: paragraph,
+                Expanded(
+                  child: Text(
+                    widget.word.word,
+                    style: paragraph,
+                  ),
                 ),
                 SizedBox(
                   width: 40,

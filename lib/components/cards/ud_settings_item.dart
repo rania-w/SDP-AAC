@@ -5,7 +5,6 @@ import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/pages/add-edit/edit_cat.dart';
 import 'package:flutter/material.dart';
-import 'package:aac/services/boxes.dart';
 
 class UDSettingsItem extends StatefulWidget {
   final Category category;
@@ -35,13 +34,12 @@ class _UDSettingsItemState extends State<UDSettingsItem> {
                 width: MediaQuery.of(context).size.width * 0.62,
                 category: widget.category,
                 onPressed: () {
-                  // Navigator.of(context).push(
-                  //   MaterialPageRoute(
-                  //     builder: (context) => EditCategory(),
-                  //     settings: RouteSettings(
-                  //         arguments: {'category': widget.category}),
-                  //   ),
-                  // );
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          EditCategory(categoryId: widget.category.categoryId),
+                    ),
+                  );
                 },
               )
             ],

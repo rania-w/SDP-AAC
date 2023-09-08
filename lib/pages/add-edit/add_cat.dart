@@ -4,6 +4,7 @@ import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/pages/add-edit/add_word.dart';
+import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
@@ -20,6 +21,7 @@ class _AddCategoryState extends State<AddCategory> {
   String catTitle = '';
   String img = imageAsset;
   String receivedBack = '';
+  bool showIcons = false;
   var temp;
 
   @override
@@ -47,7 +49,11 @@ class _AddCategoryState extends State<AddCategory> {
                         child: IconButton(
                           iconSize: 52,
                           icon: Image.asset(img),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              showIcons = true;
+                            });
+                          },
                         ),
                       ),
                       Container(
@@ -71,27 +77,38 @@ class _AddCategoryState extends State<AddCategory> {
                   ),
 
                   /// image menu
-                  Row(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.85,
-                        child: ResponsiveGridList(
-                          desiredItemWidth: 100,
-                          children: images.entries.map((e) {
-                            return IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  img = e.value;
-                                });
-                              },
-                              icon: Image.asset(e.value),
-                              iconSize: 48,
-                            );
-                          }).toList(),
+                  Visibility(
+                    visible: showIcons,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          width: MediaQuery.of(context).size.width * 0.77,
+                          child: ResponsiveGridList(
+                            desiredItemWidth: 100,
+                            children: images.entries.map((e) {
+                              return IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    img = e.value;
+                                  });
+                                },
+                                icon: Image.asset(e.value),
+                                iconSize: 48,
+                              );
+                            }).toList(),
+                          ),
                         ),
-                      ),
-                    ],
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              showIcons = false;
+                            });
+                          },
+                          icon: Icon(Icons.close),
+                        ),
+                      ],
+                    ),
                   ),
 
                   /// add words button
@@ -140,13 +157,14 @@ class _AddCategoryState extends State<AddCategory> {
                           if (_formKey.currentState!.validate()) {
                             category.imageAsset = img;
                             category.title = catTitle;
-                            // problem
                             if (receivedBack != '') {
                               boxCategory.put(receivedBack, temp);
                             } else {
                               boxCategory.put(category.categoryId, category);
                             }
-                            Navigator.pop(context);
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) => UDCategories()));
                           }
                         },
                         defaultColor: accent,

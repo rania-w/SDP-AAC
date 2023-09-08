@@ -18,7 +18,7 @@ class _UDCategoriesState extends State<UDCategories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar('Postavke'),
+      appBar: appBar('Kategorije'),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: ListView(
@@ -26,6 +26,11 @@ class _UDCategoriesState extends State<UDCategories> {
             for (var i in categories)
               UDSettingsItem(
                 category: i,
+                onPressed: () {
+                  setState(() {
+                    boxCategory.delete(i.categoryId);
+                  });
+                },
               )
           ],
         ),
