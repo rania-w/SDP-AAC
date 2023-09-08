@@ -4,7 +4,6 @@ import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/pages/add-edit/add_word.dart';
-import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
@@ -25,8 +24,7 @@ class _AddCategoryState extends State<AddCategory> {
 
   @override
   Widget build(BuildContext context) {
-    Category category =
-        Category(imageAsset: imageAsset, title: catTitle, words: []);
+    Category category = Category(imageAsset: img, title: catTitle, words: []);
     return Scaffold(
       appBar: appBar("Nova kategorija"),
       body: SizedBox(
@@ -102,8 +100,6 @@ class _AddCategoryState extends State<AddCategory> {
                     children: [
                       TextButton(
                         onPressed: () async {
-                          /// add word page
-                          /// salje probz argument categoryId
                           temp = await Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => AddWord(
@@ -114,14 +110,6 @@ class _AddCategoryState extends State<AddCategory> {
                           setState(() {
                             receivedBack = temp.categoryId;
                           });
-
-                          // if (receivedBack != '') {
-                          //   boxCategory.put(receivedBack, temp);
-                          // } else {
-                          //   boxCategory.put(category.categoryId, category);
-                          // }
-                          debugPrint(
-                              "deb add cat: id: ${category.categoryId}; title: ${category.title}");
                         },
                         child: Text(
                           "Riječi",

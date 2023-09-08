@@ -3,8 +3,6 @@ import 'package:aac/components/cards/word_added.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
-import 'package:aac/pages/add-edit/add_cat.dart';
-import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
@@ -183,8 +181,6 @@ class _AddWordState extends State<AddWord> {
                               for (Word i in words) {
                                 boxWord.put(i.wordId, i);
                               }
-                              debugPrint(
-                                  "deb addword: categoryId: ${widget.category.categoryId}; title: ${widget.category.title}; words: ${boxWord.get(newWord.wordId)}; catId: ${boxWord.get(newWord.categoryId)}");
                               Navigator.pop(context, widget.category);
                             }
                           },
