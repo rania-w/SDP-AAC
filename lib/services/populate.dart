@@ -5,9 +5,9 @@ import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 
 Category emocije =
-    Category(imageAsset: imageAsset, title: 'Emocije', words: []);
+    Category(imageAsset: images['advice']!, title: 'Emocije', words: []);
 Category konverzacija =
-    Category(imageAsset: imageAsset, title: 'Konverzacija', words: []);
+    Category(imageAsset: images['talk']!, title: 'Konverzacija', words: []);
 
 List<Category> defaultCategories = [emocije, konverzacija];
 
@@ -116,7 +116,6 @@ List<Word> konverzacijaWords = [
 ];
 
 // porodica
-// moje rijeci prazna lista
 
 void populate() {
   try {

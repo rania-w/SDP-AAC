@@ -3,7 +3,6 @@ import 'package:aac/components/settings_item.dart';
 import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:aac/pages/settings/accessibility/accessibility_settings.dart';
 import 'package:flutter/material.dart';
-import '../components/search.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});

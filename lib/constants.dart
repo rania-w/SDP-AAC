@@ -25,7 +25,7 @@ const textInputDecoration = InputDecoration(
   labelStyle: TextStyle(color: grey),
 );
 
-const imageAsset = 'lib/resources/images/frog.jpeg';
+// const imageAsset = 'frog.jpeg';
 
 AppBar appBar(String title) {
   return AppBar(
@@ -49,3 +49,13 @@ const heading = TextStyle(
   fontSize: 24,
   fontFamily: 'Medium',
 );
+
+Map<String, String> images = {
+  'advice': 'lib/resources/images/icons8-advice-80.png',
+  'apple': 'lib/resources/images/icons8-apple-fruit-80.png',
+  'family': 'lib/resources/images/icons8-family-80.png',
+  'talk': 'lib/resources/images/icons8-talk-80.png',
+  'question': 'lib/resources/images/icons8-question-mark-80.png',
+};
+
+const imageAsset = 'lib/resources/images/icons8-question-mark-80.png';
