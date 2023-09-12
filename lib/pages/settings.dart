@@ -17,7 +17,6 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       body: ListView(
         children: [
-          // Search(),
           SettingsItem(
             name: "Kategorije",
             onPressed: () {

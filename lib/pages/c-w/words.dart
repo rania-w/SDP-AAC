@@ -53,7 +53,6 @@ class _WordsState extends State<Words> {
         padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
-            // const Search(),
             SearchBar(
               onChanged: (value) {
                 filterObjects(value);
