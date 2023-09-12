@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:aac/components/input/custom_input_dialog.dart';
 import 'package:aac/components/settings_item.dart';
+import 'package:aac/constants.dart';
 import 'package:aac/pages/add-edit/ud_categories.dart';
 import 'package:aac/pages/settings/accessibility/accessibility_settings.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +34,15 @@ class _SettingsState extends State<Settings> {
             },
           ),
           SettingsItem(
-            name: "Profil",
-            onPressed: () {},
+            name: "Nadimak",
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return CustomInputDialog(); // Your custom input dialog widget
+                },
+              );
+            },
           ),
         ],
       ),
