@@ -17,6 +17,7 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.all(20),
       children: [
         CustomInput(
           onSelected: (selected) {
