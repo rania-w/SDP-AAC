@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:aac/components/buttons/custom_button.dart';
-import 'package:aac/components/input/custom_input.dart';
+import 'package:aac/components/cards/word_card.dart';
 import 'package:aac/constants.dart';
+import 'package:aac/objects/word.dart';
+import 'package:aac/services/boxes.dart';
+import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
 
 class SentenceBuilding extends StatefulWidget {
@@ -13,67 +16,91 @@ class SentenceBuilding extends StatefulWidget {
 }
 
 class _SentenceBuildingState extends State<SentenceBuilding> {
-  List<String> received = [];
+  final TextEditingController _textController = TextEditingController();
+  Word? temp;
+  var words = boxWord.values;
+
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.all(20),
-      children: [
-        CustomInput(
-          onSelected: (selected) {
-            setState(() {
-              received.add(selected);
-            });
-          },
-        ),
-        Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(color: grey)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          Row(
             children: [
-              for (var i in received)
-                Container(
-                  decoration: BoxDecoration(
-                      color: primary,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: primaryClicked, width: 1.5)),
-                  margin: EdgeInsets.symmetric(horizontal: 4),
-                  padding: EdgeInsets.all(8),
-                  child: Row(
-                    children: [
-                      Text(i),
-                      IconButton(
+              Expanded(
+                child: TextField(
+                  decoration: textInputDecoration,
+                  controller: _textController,
+                ),
+              ),
+              IconButton(
+                onPressed: () async {
+                  await tts.speak(_textController.text);
+                },
+                icon: Icon(Icons.volume_up),
+              ),
+            ],
+          ),
+          CustomButton(
+            text: "Spasi rečenicu",
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text("Izaberi riječ"),
+                    titleTextStyle:
+                        paragraph.copyWith(fontWeight: FontWeight.bold),
+                    content: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      child: ListView(
+                        children: [
+                          for (var i in words)
+                            WordCard(
+                              word: i,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    i.sentences.add(_textController.text);
+                                    temp = i;
+                                  },
+                                );
+                              },
+                            ),
+                        ],
+                      ),
+                    ),
+                    actions: [
+                      TextButton(
                         onPressed: () {
-                          setState(() {
-                            received.remove(i);
-                          });
+                          Navigator.of(context).pop(); // Close the dialog
                         },
-                        icon: Icon(
-                          Icons.close,
-                          color: contrast,
+                        child: Text(
+                          'Nazad',
+                          style: paragraph.copyWith(fontSize: 12),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          boxWord.put(temp!.wordId, temp);
+                        },
+                        child: Text(
+                          'Spasi promjene',
+                          style: paragraph.copyWith(fontSize: 12),
                         ),
                       ),
                     ],
-                  ),
-                ),
-              IconButton(
-                  onPressed: () {
-                    //tts
-                  },
-                  icon: Icon(Icons.volume_up))
-            ],
+                  );
+                },
+              );
+            },
+            defaultColor: accent,
+            focusColor: accentClicked,
           ),
-        ),
-        CustomButton(
-          text: "Save sentence",
-          onPressed: () {},
-          defaultColor: accent,
-          focusColor: accentClicked,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
