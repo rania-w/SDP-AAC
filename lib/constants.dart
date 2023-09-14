@@ -50,12 +50,53 @@ const heading = TextStyle(
   fontFamily: 'Medium',
 );
 
+// const path = 'lib/resources/images/icons8-';
+String path(String s) {
+  return 'lib/resources/images/icons8-$s-80.png';
+}
+
 Map<String, String> images = {
   'advice': 'lib/resources/images/icons8-advice-80.png',
   'apple': 'lib/resources/images/icons8-apple-fruit-80.png',
   'family': 'lib/resources/images/icons8-family-80.png',
   'talk': 'lib/resources/images/icons8-talk-80.png',
   'question': 'lib/resources/images/icons8-question-mark-80.png',
+  'doughnut': path('doughnut'),
+  'sun': path('sun'),
+  'happy': path('happy'),
+  'sad': path('sad'),
+  'angry': path('angry'),
+  'afternoon': path('afteroon'),
+  'boy': path('boy'),
+  'bread': path('bread'),
+  'yes': path('checkmark'),
+  'cheese': path('cheese'),
+  'confused': path('confused'),
+  'dad': path('dad'),
+  'evening': path('evening'),
+  'eye': path('eye'),
+  'girl': path('girl'),
+  'grandma': path('grandma'),
+  'guardian': path('guardian'),
+  'help': path('help'),
+  'listening': path('listening'),
+  'meat': path('meat'),
+  'milk': path('milk-bottle'),
+  'mom': path('mom'),
+  //
+  'no': path('no'),
+  'male': path('male'),
+  'female': path('female'),
+  'potato': path('potato'),
+  'salt': path('salt-shaker'),
+  'sandwich': path('sandwich'),
+  'grandpa': path('senior'),
+  'tired': path('sleepy-eyes'),
+  'sorry': path('sorry'),
+  'cake': path('strawberry-cheesecake'),
+  'sugar': path('sugar'),
+  'sick': path('vomited'),
+  'walking': path('walking')
 };
 
 const imageAsset = 'lib/resources/images/icons8-question-mark-80.png';

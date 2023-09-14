@@ -6,15 +6,26 @@ import 'package:flutter/material.dart';
 
 Category emocije =
     Category(imageAsset: images['advice']!, title: 'Emocije', words: []);
+
 Category konverzacija =
     Category(imageAsset: images['talk']!, title: 'Konverzacija', words: []);
 
-List<Category> defaultCategories = [emocije, konverzacija];
+Category hrana =
+    Category(imageAsset: images['doughnut']!, title: 'Hrana', words: []);
 
-List<Word> favWords = [];
+Category porodica =
+    Category(imageAsset: images['family']!, title: 'Porodica', words: []);
+
+List<Category> defaultCategories = [
+  emocije,
+  konverzacija,
+  hrana,
+  porodica,
+];
+
 Word sreca = Word(
     word: "Sreća",
-    imageAsset: imageAsset,
+    imageAsset: images['happy']!,
     sentences: [
       "Osjećam se sretno.",
       'Nisam sretan',
@@ -23,30 +34,30 @@ Word sreca = Word(
     categoryId: emocije.categoryId);
 Word tuga = Word(
     word: 'Tuga',
-    imageAsset: imageAsset,
+    imageAsset: images['sad']!,
     sentences: ['Tužan sam', 'Jesi li tužan?'],
     categoryId: emocije.categoryId);
 Word ljutnja = Word(
     word: 'Ljutnja',
-    imageAsset: imageAsset,
+    imageAsset: images['angry']!,
     sentences: ['Ljut sam', 'Nemoj se ljutiti.'],
     categoryId: emocije.categoryId);
 
 Word umor = Word(
     word: "Umor",
-    imageAsset: imageAsset,
+    imageAsset: images['tired']!,
     sentences: ['Umorna sam'],
     categoryId: emocije.categoryId);
 
 Word zbunjen = Word(
     word: 'Zbunjenost',
-    imageAsset: imageAsset,
+    imageAsset: images['confused']!,
     sentences: ['Zbunjena sam.'],
     categoryId: emocije.categoryId);
 
 Word muka = Word(
     word: "Mučnina",
-    imageAsset: imageAsset,
+    imageAsset: images['sick']!,
     sentences: ["Muka mi je."],
     categoryId: emocije.categoryId);
 List<Word> emocijeWords = [
@@ -74,32 +85,32 @@ Word ti = Word(
     categoryId: konverzacija.categoryId);
 Word da = Word(
     word: 'Da',
-    imageAsset: imageAsset,
+    imageAsset: images['yes']!,
     sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word ne = Word(
     word: 'Ne',
-    imageAsset: imageAsset,
+    imageAsset: images['no']!,
     sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word izvini = Word(
     word: 'Izvini',
-    imageAsset: imageAsset,
+    imageAsset: images['sorry']!,
     sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word ponovi = Word(
     word: "Ponovi",
-    imageAsset: imageAsset,
+    imageAsset: images['listening']!,
     sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word upomoc = Word(
     word: 'Upomoć',
-    imageAsset: imageAsset,
+    imageAsset: images['help']!,
     sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 Word pogledaj = Word(
     word: 'Pogledaj',
-    imageAsset: imageAsset,
+    imageAsset: images['eye']!,
     sentences: ['Ćao, kako si?'],
     categoryId: konverzacija.categoryId);
 
@@ -115,12 +126,92 @@ List<Word> konverzacijaWords = [
   ponovi
 ];
 
-// porodica
+Word jabuka = Word(
+    word: 'Jabuka',
+    imageAsset: images['apple']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word sendvic = Word(
+    word: 'Sendvič',
+    imageAsset: images['sandwich']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word hljeb = Word(
+    word: 'Hljeb',
+    imageAsset: images['bread']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word mlijeko = Word(
+    word: 'Mlijeko',
+    imageAsset: images['milk']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word secer = Word(
+    word: 'Šećer',
+    imageAsset: images['sugar']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word so = Word(
+    word: 'So',
+    imageAsset: images['salt']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word meso = Word(
+    word: 'Meso',
+    imageAsset: images['meat']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word sir = Word(
+    word: 'Sir',
+    imageAsset: images['cheese']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+Word krompir = Word(
+    word: 'Krompir',
+    imageAsset: images['potato']!,
+    categoryId: hrana.categoryId,
+    sentences: []);
+
+List<Word> hranaWords = [
+  jabuka,
+  sendvic,
+  mlijeko,
+  hljeb,
+  secer,
+  so,
+  meso,
+  sir,
+  krompir
+];
+
+Word mama = Word(
+    word: 'Mama',
+    imageAsset: images['mom']!,
+    categoryId: porodica.categoryId,
+    sentences: []);
+Word tata = Word(
+    word: 'Tata',
+    imageAsset: images['dad']!,
+    categoryId: porodica.categoryId,
+    sentences: []);
+Word brat = Word(
+    word: 'Brat',
+    imageAsset: images['boy']!,
+    categoryId: porodica.categoryId,
+    sentences: []);
+Word sestra = Word(
+    word: 'Sestra',
+    imageAsset: images['girl']!,
+    categoryId: porodica.categoryId,
+    sentences: []);
+List<Word> porodicaWords = [mama, tata, brat, sestra];
 
 void populate() {
   try {
     emocije.setWords = emocijeWords;
     konverzacija.setWords = konverzacijaWords;
+    hrana.setWords = hranaWords;
+    porodica.setWords = porodicaWords;
     if (boxCategory.isEmpty) {
       for (var category in defaultCategories) {
         boxCategory.put(category.categoryId, category);

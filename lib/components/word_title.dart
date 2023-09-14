@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:aac/constants.dart';
-import 'package:aac/services/boxes.dart';
 import 'package:flutter/material.dart';
 
 class WordTitle extends StatefulWidget {
   final String title;
   final VoidCallback ttsButton;
-  // final VoidCallback favButton;
 
   const WordTitle({
     super.key,
