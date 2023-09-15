@@ -133,9 +133,11 @@ class _EditCategoryState extends State<EditCategory> {
                               ),
                             ),
                           );
-                          setState(() {
-                            receivedBack = temp.categoryId;
-                          });
+                          if (temp != null) {
+                            setState(() {
+                              receivedBack = temp.categoryId;
+                            });
+                          }
                         },
                         child: Text(
                           "Riječi",

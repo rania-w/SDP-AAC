@@ -124,9 +124,11 @@ class _AddCategoryState extends State<AddCategory> {
                               ),
                             ),
                           );
-                          setState(() {
-                            receivedBack = temp.categoryId;
-                          });
+                          if (temp != null) {
+                            setState(() {
+                              receivedBack = temp.categoryId;
+                            });
+                          }
                         },
                         child: Text(
                           "Riječi",

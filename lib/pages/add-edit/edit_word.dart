@@ -22,14 +22,22 @@ class _EditWordState extends State<EditWord> {
   bool showIcons = false;
   late List boxWords = boxWord.values.toList();
   List<Word> words = [];
+  // words = words.where((element) => false)
+
   @override
-  Widget build(BuildContext context) {
-    Word newWord = Word(
-        word: word, imageAsset: img, categoryId: widget.category.categoryId);
+  void initState() {
+    super.initState();
     words = boxWords.cast<Word>();
     words = words.where((element) {
       return widget.category.categoryId == element.categoryId;
     }).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Word newWord = Word(
+        word: word, imageAsset: img, categoryId: widget.category.categoryId);
+
     return Scaffold(
       appBar: appBar('Nova riječ'),
       body: SizedBox(
@@ -84,6 +92,7 @@ class _EditWordState extends State<EditWord> {
                         setState(() {
                           words.add(newWord);
                         });
+                        debugPrint("deb: dodano");
                       }
                     },
                     child: Text(
@@ -93,7 +102,7 @@ class _EditWordState extends State<EditWord> {
                     ),
                   ),
 
-                  /// icons - should be visibility
+                  /// icons
                   Visibility(
                     visible: showIcons,
                     child: Row(
