@@ -66,7 +66,7 @@ Map<String, String> images = {
   'happy': path('happy'),
   'sad': path('sad'),
   'angry': path('angry'),
-  'afternoon': path('afteroon'),
+  'afternoon': path('afternoon'),
   'boy': path('boy'),
   'bread': path('bread'),
   'yes': path('checkmark'),
@@ -83,7 +83,7 @@ Map<String, String> images = {
   'meat': path('meat'),
   'milk': path('milk-bottle'),
   'mom': path('mom'),
-  //
+  // //
   'no': path('no'),
   'male': path('male'),
   'female': path('female'),
