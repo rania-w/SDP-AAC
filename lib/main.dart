@@ -39,9 +39,7 @@ void main() async {
   }
 
   try {
-    if (boxUser.isEmpty) {
-      ttsConf(0.5, 1, 1, 'hr-HR');
-    }
+    ttsConf(0.5, 1, 1, 'hr-HR');
   } catch (e) {
     debugPrint("tts exception: $e");
   }

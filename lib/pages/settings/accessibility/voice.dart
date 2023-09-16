@@ -165,6 +165,7 @@ class _VoiceSettingsState extends State<VoiceSettings> {
                     ttsSettings['pitch'] = pitch;
                     ttsSettings['language'] = language;
                     ttsConf(rate, volume, pitch, language);
+                    Navigator.of(context).pop();
                   },
                   text: 'Spasi promjene',
                   defaultColor: accent,
