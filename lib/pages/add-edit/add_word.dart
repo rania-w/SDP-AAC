@@ -175,6 +175,7 @@ class _AddWordState extends State<AddWord> {
                           if (_formKey.currentState!.validate()) {
                             newWord.imageAsset = img;
                             newWord.word = word;
+                            newWord.sentences = [];
                             widget.category.words = words;
                             boxCategory.put(
                                 widget.category.categoryId, widget.category);

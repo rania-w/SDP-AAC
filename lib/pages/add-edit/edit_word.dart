@@ -36,7 +36,11 @@ class _EditWordState extends State<EditWord> {
   @override
   Widget build(BuildContext context) {
     Word newWord = Word(
-        word: word, imageAsset: img, categoryId: widget.category.categoryId);
+      word: word,
+      imageAsset: img,
+      categoryId: widget.category.categoryId,
+      sentences: [],
+    );
 
     return Scaffold(
       appBar: appBar('Nova riječ'),
@@ -189,6 +193,7 @@ class _EditWordState extends State<EditWord> {
                           if (_formKey.currentState!.validate()) {
                             newWord.imageAsset = img;
                             newWord.word = word;
+                            newWord.sentences = [];
                             widget.category.words = words;
                             boxCategory.put(
                                 widget.category.categoryId, widget.category);
