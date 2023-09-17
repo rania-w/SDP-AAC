@@ -40,15 +40,8 @@ class _WordsState extends State<Words> {
 
   @override
   Widget build(BuildContext context) {
-    // data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
-    // for (var i in boxWord.values) {
-    //   if (data['categoryId'] == i.categoryId) {
-    //     wordList.add(i);
-    //   }
-    // }
-
     return Scaffold(
-      appBar: appBar('kategorija'),
+      appBar: appBar(boxCategory.get(widget.categoryId).title),
       body: Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
@@ -81,16 +74,6 @@ class _WordsState extends State<Words> {
               side: MaterialStateProperty.all(
                   const BorderSide(color: Color(0xFF393E41))),
             ),
-            // for (var i in wordList)
-            //   WordCard(
-            //     word: i,
-            //     onPressed: () {
-            //       Navigator.of(context).push(MaterialPageRoute(
-            //           builder: (context) => DetailedItemView(),
-            //           settings:
-            //               RouteSettings(arguments: {'wordId': i.wordId})));
-            //     },
-            //   )
             Column(
               children: filtered.map((e) {
                 return WordCard(
@@ -102,7 +85,7 @@ class _WordsState extends State<Words> {
                               RouteSettings(arguments: {'wordId': e.wordId})));
                     });
               }).toList(),
-            )
+            ),
           ],
         ),
       ),

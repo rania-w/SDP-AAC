@@ -2,7 +2,6 @@
 
 import 'package:aac/components/settings_item.dart';
 import 'package:aac/constants.dart';
-import 'package:aac/pages/settings/accessibility/colors.dart';
 import 'package:aac/pages/settings/accessibility/voice.dart';
 import 'package:flutter/material.dart';
 
@@ -20,16 +19,15 @@ class _AccessibilitySettingsState extends State<AccessibilitySettings> {
       appBar: appBar("Pristupačnost"),
       body: ListView(
         children: [
+          // SettingsItem(
+          //   name: "Font",
+          //   onPressed: () {
+          //     Navigator.of(context).push(
+          //         MaterialPageRoute(builder: (context) => FontSettings()));
+          //   },
+          // ),
           SettingsItem(
-            name: "Boje",
-            onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ColorsSettings()));
-              debugPrint("doživljavam te");
-            },
-          ),
-          SettingsItem(
-            name: "Zvuk",
+            name: "Glas",
             onPressed: () {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => VoiceSettings()));
@@ -38,6 +36,5 @@ class _AccessibilitySettingsState extends State<AccessibilitySettings> {
         ],
       ),
     );
-    ;
   }
 }

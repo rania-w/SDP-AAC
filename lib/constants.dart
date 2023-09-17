@@ -46,7 +46,7 @@ const paragraph = TextStyle(
 );
 const heading = TextStyle(
   color: black,
-  fontSize: 24,
+  fontSize: 20,
   fontFamily: 'Medium',
 );
 

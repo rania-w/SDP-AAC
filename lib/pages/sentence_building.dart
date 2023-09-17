@@ -32,7 +32,16 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                 child: TextField(
                   decoration: textInputDecoration,
                   controller: _textController,
+                  cursorColor: contrast,
                 ),
+              ),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    _textController.clear();
+                  });
+                },
+                icon: Icon(Icons.close),
               ),
               IconButton(
                 onPressed: () async {
