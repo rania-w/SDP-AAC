@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/components/settings_item.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/pages/settings/accessibility/voice.dart';
@@ -16,7 +14,7 @@ class _AccessibilitySettingsState extends State<AccessibilitySettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("Pristupačnost"),
+      appBar: appBar("Pristupačnost", true),
       body: ListView(
         children: [
           // SettingsItem(
@@ -29,8 +27,8 @@ class _AccessibilitySettingsState extends State<AccessibilitySettings> {
           SettingsItem(
             name: "Glas",
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => VoiceSettings()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const VoiceSettings()));
             },
           ),
         ],

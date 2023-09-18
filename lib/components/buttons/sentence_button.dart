@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/services/tts.dart';
@@ -20,6 +18,7 @@ class _SentenceButtonState extends State<SentenceButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(width: 2, color: accent),

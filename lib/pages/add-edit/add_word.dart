@@ -26,12 +26,12 @@ class _AddWordState extends State<AddWord> {
     Word newWord = Word(
         word: word, imageAsset: img, categoryId: widget.category.categoryId);
     return Scaffold(
-      appBar: appBar('Nova riječ'),
+      appBar: appBar('Nova riječ', true),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: ListView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           children: [
             Form(
               key: _formKey,
@@ -41,8 +41,8 @@ class _AddWordState extends State<AddWord> {
                   Row(
                     children: [
                       Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         width: MediaQuery.of(context).size.width * 0.3,
                         child: IconButton(
                           iconSize: 52,
@@ -55,11 +55,11 @@ class _AddWordState extends State<AddWord> {
                         ),
                       ),
                       Container(
-                        alignment: Alignment(1, 0),
+                        alignment: const Alignment(1, 0),
                         width: MediaQuery.of(context).size.width * 0.5,
                         height: MediaQuery.of(context).size.height * 0.1,
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         child: TextFormField(
                           validator: (val) =>
                               val!.isEmpty ? 'Polje ne može biti prazno' : null,
@@ -67,7 +67,7 @@ class _AddWordState extends State<AddWord> {
                             setState(() => word = val);
                           },
                           decoration: textInputDecoration.copyWith(
-                            label: Text("Riječ"),
+                            label: const Text("Riječ"),
                           ),
                         ),
                       ),
@@ -118,7 +118,7 @@ class _AddWordState extends State<AddWord> {
                               showIcons = false;
                             });
                           },
-                          icon: Icon(Icons.close),
+                          icon: const Icon(Icons.close),
                         ),
                       ],
                     ),
@@ -146,7 +146,7 @@ class _AddWordState extends State<AddWord> {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           onPressed: () {
                             setState(() {
                               words.clear();
@@ -159,7 +159,7 @@ class _AddWordState extends State<AddWord> {
 
                   /// buttons
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomButton(
                         text: "Nazad",

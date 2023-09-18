@@ -1,5 +1,3 @@
-//ignore_for_file: prefer_const_constructors
-
 import 'package:aac/components/cards/cat_card.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
@@ -45,7 +43,7 @@ class _UDSettingsItemState extends State<UDSettingsItem> {
           ),
           IconButton(
             onPressed: widget.onPressed,
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
           ),
         ],
       ),

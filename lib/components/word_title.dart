@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -20,14 +19,14 @@ class _WordTitleState extends State<WordTitle> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
-      margin: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             widget.title,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 24, fontFamily: 'Medium', color: Color(0xFF393E41)),
           ),
           Material(

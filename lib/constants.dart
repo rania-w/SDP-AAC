@@ -27,16 +27,16 @@ const textInputDecoration = InputDecoration(
 
 // const imageAsset = 'frog.jpeg';
 
-AppBar appBar(String title) {
+AppBar appBar(String title, bool automaticallyImplyLeading) {
   return AppBar(
-    backgroundColor: primary,
-    centerTitle: true,
-    title: Text(
-      title,
-      style: heading,
-    ),
-    iconTheme: IconThemeData(color: contrast),
-  );
+      backgroundColor: primary,
+      centerTitle: true,
+      title: Text(
+        title,
+        style: heading,
+      ),
+      iconTheme: IconThemeData(color: contrast),
+      automaticallyImplyLeading: automaticallyImplyLeading);
 }
 
 const paragraph = TextStyle(

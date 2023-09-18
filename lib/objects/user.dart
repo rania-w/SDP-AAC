@@ -1,7 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages, prefer_const_constructors
-
 import 'package:hive/hive.dart';
-// import 'package:uuid/uuid.dart';
 
 part 'user.g.dart';
 

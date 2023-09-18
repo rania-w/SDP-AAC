@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:aac/components/buttons/sentence_button.dart';
 import 'package:aac/components/cards/image_card.dart';
 import 'package:aac/constants.dart';
@@ -8,9 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:aac/components/word_title.dart';
 
 class DetailedItemView extends StatefulWidget {
-  // final Word word;
-
-  // const DetailedItemView({super.key, required this.word});
   const DetailedItemView({super.key});
 
   @override
@@ -26,7 +22,7 @@ class _DetailedItemViewState extends State<DetailedItemView> {
     late var word = boxWord.get(data['wordId']);
     late var sentences = word.sentences.toList();
     return Scaffold(
-      appBar: appBar(word.word),
+      appBar: appBar(word.word, true),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -41,17 +37,35 @@ class _DetailedItemViewState extends State<DetailedItemView> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
             ),
-            Column(
-              children: sentences.isEmpty
-                  ? [for (var i in word.sentences) SentenceButton(sentence: i)]
-                  : [
-                      Text(
-                        "Nema rečenica za ovu riječ",
-                        style: paragraph.copyWith(
-                          fontWeight: FontWeight.bold,
+            Container(
+              decoration: BoxDecoration(
+                color: white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              height: MediaQuery.of(context).size.height * 0.4,
+              width: MediaQuery.of(context).size.width * 0.6,
+              child: ListView(
+                children: sentences.isNotEmpty
+                    ? [
+                        for (var i in word.sentences)
+                          SentenceButton(sentence: i),
+                      ]
+                    : [
+                        Text(
+                          "Nema rečenica za ovu riječ",
+                          style: paragraph.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+              ),
             ),
           ],
         ),

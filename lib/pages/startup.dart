@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/user.dart';
@@ -17,22 +15,20 @@ class Startup extends StatefulWidget {
 class _StartupState extends State<Startup> {
   final _formKey = GlobalKey<FormState>();
 
-  String error = '';
-
   String nickname = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar('Dobrodošli!'),
+      appBar: appBar('Dobrodošli!', false),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(children: [
-          Text(
+          const Text(
             "Kako se zoveš?",
             style: heading,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Form(
@@ -44,18 +40,14 @@ class _StartupState extends State<Startup> {
                     onChanged: (val) {
                       setState(() => nickname = val);
                     },
-                    decoration:
-                        textInputDecoration.copyWith(label: Text('nickname'))),
-                Text(
-                  error,
-                  style: TextStyle(color: Colors.red, fontSize: 14.0),
-                ),
+                    decoration: textInputDecoration.copyWith(
+                        label: const Text('Nadimak'))),
                 CustomButton(
                   text: "Dalje",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => Home(),
+                        builder: (context) => const Home(),
                       ));
                       boxUser.put(
                           'user_key',
@@ -63,10 +55,6 @@ class _StartupState extends State<Startup> {
                             nickname: nickname,
                           ));
                       debugPrint(boxUser.values.toString());
-                    } else {
-                      setState(() {
-                        error = 'Unesite ime';
-                      });
                     }
                   },
                   defaultColor: accent,

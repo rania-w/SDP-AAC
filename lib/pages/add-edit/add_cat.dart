@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
@@ -28,12 +26,12 @@ class _AddCategoryState extends State<AddCategory> {
   Widget build(BuildContext context) {
     Category category = Category(imageAsset: img, title: catTitle, words: []);
     return Scaffold(
-      appBar: appBar("Nova kategorija"),
+      appBar: appBar("Nova kategorija", true),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: ListView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           children: [
             Form(
               key: _formKey,
@@ -43,8 +41,8 @@ class _AddCategoryState extends State<AddCategory> {
                   Row(
                     children: [
                       Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         width: MediaQuery.of(context).size.width * 0.3,
                         child: IconButton(
                           iconSize: 52,
@@ -57,11 +55,11 @@ class _AddCategoryState extends State<AddCategory> {
                         ),
                       ),
                       Container(
-                        alignment: Alignment(1, 0),
+                        alignment: const Alignment(1, 0),
                         width: MediaQuery.of(context).size.width * 0.5,
                         height: MediaQuery.of(context).size.height * 0.1,
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         child: TextFormField(
                           validator: (val) =>
                               val!.isEmpty ? 'Polje ne može biti prazno' : null,
@@ -69,7 +67,7 @@ class _AddCategoryState extends State<AddCategory> {
                             setState(() => catTitle = val);
                           },
                           decoration: textInputDecoration.copyWith(
-                            label: Text("Naziv"),
+                            label: const Text("Naziv"),
                           ),
                         ),
                       ),
@@ -105,7 +103,7 @@ class _AddCategoryState extends State<AddCategory> {
                               showIcons = false;
                             });
                           },
-                          icon: Icon(Icons.close),
+                          icon: const Icon(Icons.close),
                         ),
                       ],
                     ),
@@ -143,7 +141,7 @@ class _AddCategoryState extends State<AddCategory> {
 
                   /// buttons
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomButton(
                         text: "Nazad",
@@ -166,7 +164,8 @@ class _AddCategoryState extends State<AddCategory> {
                             }
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (context) => UDCategories()));
+                                    builder: (context) =>
+                                        const UDCategories()));
                           }
                         },
                         defaultColor: accent,

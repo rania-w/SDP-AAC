@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/components/buttons/custom_button.dart';
 import 'package:aac/components/cards/word_card.dart';
 import 'package:aac/constants.dart';
@@ -30,7 +28,8 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
             children: [
               Expanded(
                 child: TextField(
-                  decoration: textInputDecoration,
+                  decoration:
+                      textInputDecoration.copyWith(hintText: "Izrazi se"),
                   controller: _textController,
                   cursorColor: contrast,
                 ),
@@ -41,13 +40,13 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                     _textController.clear();
                   });
                 },
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close),
               ),
               IconButton(
                 onPressed: () async {
                   await tts.speak(_textController.text);
                 },
-                icon: Icon(Icons.volume_up),
+                icon: const Icon(Icons.volume_up),
               ),
             ],
           ),
@@ -58,7 +57,7 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text("Izaberi riječ"),
+                    title: const Text("Izaberi riječ"),
                     titleTextStyle:
                         paragraph.copyWith(fontWeight: FontWeight.bold),
                     content: SizedBox(
@@ -76,6 +75,7 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                                     temp = i;
                                   },
                                 );
+                                Navigator.of(context).pop();
                               },
                             ),
                         ],

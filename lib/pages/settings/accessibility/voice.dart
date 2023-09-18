@@ -25,13 +25,13 @@ class _VoiceSettingsState extends State<VoiceSettings> {
         iconTheme: IconThemeData(color: contrast),
         backgroundColor: primary,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Glas",
           style: heading,
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             Container(
@@ -146,6 +146,7 @@ class _VoiceSettingsState extends State<VoiceSettings> {
               focusColor: primaryClicked,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomButton(
                   onPressed: () {

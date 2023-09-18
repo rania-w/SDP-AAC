@@ -38,12 +38,12 @@ class _EditCategoryState extends State<EditCategory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(category.title),
+      appBar: appBar(category.title, true),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: ListView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           children: [
             Form(
               key: _formKey,
@@ -52,8 +52,8 @@ class _EditCategoryState extends State<EditCategory> {
                   Row(
                     children: [
                       Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         width: MediaQuery.of(context).size.width * 0.3,
                         child: IconButton(
                           iconSize: 52,
@@ -66,11 +66,11 @@ class _EditCategoryState extends State<EditCategory> {
                         ),
                       ),
                       Container(
-                        alignment: Alignment(1, 0),
+                        alignment: const Alignment(1, 0),
                         width: MediaQuery.of(context).size.width * 0.5,
                         height: MediaQuery.of(context).size.height * 0.1,
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         child: TextFormField(
                           initialValue: title,
                           validator: (val) =>
@@ -79,7 +79,7 @@ class _EditCategoryState extends State<EditCategory> {
                             setState(() => title = val);
                           },
                           decoration: textInputDecoration.copyWith(
-                            label: Text("Naziv"),
+                            label: const Text("Naziv"),
                           ),
                         ),
                       ),
@@ -116,7 +116,7 @@ class _EditCategoryState extends State<EditCategory> {
                               showIcons = false;
                             });
                           },
-                          icon: Icon(Icons.close),
+                          icon: const Icon(Icons.close),
                         ),
                       ],
                     ),
@@ -152,7 +152,7 @@ class _EditCategoryState extends State<EditCategory> {
 
                   /// buttons
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomButton(
                         text: "Nazad",
@@ -175,7 +175,8 @@ class _EditCategoryState extends State<EditCategory> {
                             }
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (context) => UDCategories()));
+                                    builder: (context) =>
+                                        const UDCategories()));
                           }
                         },
                         defaultColor: accent,

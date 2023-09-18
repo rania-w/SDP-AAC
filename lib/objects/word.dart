@@ -21,12 +21,10 @@ class Word {
   @HiveField(4)
   String categoryId;
 
-  /// audio file :)
-
   Word(
       {required this.word,
       required this.imageAsset,
       this.sentences,
       required this.categoryId})
-      : wordId = Uuid().v4();
+      : wordId = const Uuid().v4();
 }

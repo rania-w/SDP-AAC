@@ -18,7 +18,7 @@ class _CustomInputDialogState extends State<CustomInputDialog> {
   Widget build(BuildContext context) {
     _textController.text = user.nickname;
     return AlertDialog(
-      title: Text('Nadimak'),
+      title: const Text('Nadimak'),
       titleTextStyle: paragraph.copyWith(fontWeight: FontWeight.bold),
       content: TextFormField(
         controller: _textController,
@@ -36,11 +36,7 @@ class _CustomInputDialogState extends State<CustomInputDialog> {
         ),
         TextButton(
           onPressed: () {
-            // Process the user's input
-
             user.nickname = _textController.text;
-            // Perform actions with inputData
-            // print('User input: $inputData');
             boxUser.put('user_key', user);
             Navigator.of(context).pop(); // Close the dialog
           },

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/services/tts.dart';
@@ -24,7 +22,7 @@ class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(vertical: 16),
       child: ElevatedButton(
         onPressed: widget.onPressed,
         onLongPress: () async {
@@ -37,8 +35,10 @@ class _CustomButtonState extends State<CustomButton> {
               side: BorderSide(color: widget.focusColor, width: 1.5),
             ),
           ),
-          padding:
-              MaterialStateProperty.resolveWith((states) => EdgeInsets.all(20)),
+          padding: MaterialStateProperty.resolveWith(
+            (states) =>
+                const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          ),
           backgroundColor: MaterialStateProperty.resolveWith((states) =>
               states.contains(MaterialState.pressed)
                   ? widget.focusColor
@@ -46,7 +46,7 @@ class _CustomButtonState extends State<CustomButton> {
         ),
         child: Text(
           widget.text,
-          style: TextStyle(
+          style: const TextStyle(
             color: black,
             fontFamily: 'Light',
             fontSize: 16,

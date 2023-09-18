@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
 class SettingsItem extends StatefulWidget {
@@ -22,23 +21,23 @@ class _SettingsItemState extends State<SettingsItem> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
         child: ElevatedButton(
           onPressed: widget.onPressed,
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.resolveWith((states) =>
                   states.contains(MaterialState.pressed)
-                      ? Color(0xffffffff).withOpacity(0)
-                      : Color(0xffffffff).withOpacity(0)),
+                      ? const Color(0xffffffff).withOpacity(0)
+                      : const Color(0xffffffff).withOpacity(0)),
               shadowColor: MaterialStateProperty.resolveWith((states) =>
                   states.contains(MaterialState.pressed)
-                      ? Color(0xff9ead7f).withOpacity(0)
-                      : Color(0xffc1ccac).withOpacity(0))),
+                      ? const Color(0xff9ead7f).withOpacity(0)
+                      : const Color(0xffc1ccac).withOpacity(0))),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
               widget.name,
-              style: TextStyle(color: Color(0xff393E41)),
+              style: const TextStyle(color: Color(0xff393E41)),
             ),
           ),
         ),

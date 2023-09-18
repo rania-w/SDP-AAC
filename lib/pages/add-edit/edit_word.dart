@@ -43,12 +43,12 @@ class _EditWordState extends State<EditWord> {
     );
 
     return Scaffold(
-      appBar: appBar('Nova riječ'),
+      appBar: appBar('Nova riječ', true),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: ListView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           children: [
             Form(
               key: _formKey,
@@ -58,8 +58,8 @@ class _EditWordState extends State<EditWord> {
                   Row(
                     children: [
                       Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         width: MediaQuery.of(context).size.width * 0.3,
                         child: IconButton(
                           iconSize: 52,
@@ -72,11 +72,11 @@ class _EditWordState extends State<EditWord> {
                         ),
                       ),
                       Container(
-                        alignment: Alignment(1, 0),
+                        alignment: const Alignment(1, 0),
                         width: MediaQuery.of(context).size.width * 0.5,
                         height: MediaQuery.of(context).size.height * 0.1,
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
                         child: TextFormField(
                           validator: (val) =>
                               val!.isEmpty ? 'Polje ne može biti prazno' : null,
@@ -84,7 +84,7 @@ class _EditWordState extends State<EditWord> {
                             setState(() => word = val);
                           },
                           decoration: textInputDecoration.copyWith(
-                            label: Text("Riječ"),
+                            label: const Text("Riječ"),
                           ),
                         ),
                       ),
@@ -136,7 +136,7 @@ class _EditWordState extends State<EditWord> {
                               showIcons = false;
                             });
                           },
-                          icon: Icon(Icons.close),
+                          icon: const Icon(Icons.close),
                         ),
                       ],
                     ),
@@ -164,7 +164,7 @@ class _EditWordState extends State<EditWord> {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           onPressed: () {
                             setState(() {
                               words.clear();
@@ -177,7 +177,7 @@ class _EditWordState extends State<EditWord> {
 
                   /// buttons
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomButton(
                         text: "Nazad",

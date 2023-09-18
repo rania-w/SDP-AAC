@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/cat_card.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/pages/c-w/words.dart';
@@ -35,7 +34,7 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: ListView(
         children: [
           SearchBar(
@@ -45,7 +44,7 @@ class _CategoriesState extends State<Categories> {
             controller: _searchController,
             hintText: "Kategorija ili riječ",
             hintStyle: MaterialStateProperty.all(
-                TextStyle(color: grey, fontFamily: 'Light')),
+                const TextStyle(color: grey, fontFamily: 'Light')),
             trailing: [
               IconButton(
                 icon: const Icon(Icons.close),
@@ -57,7 +56,7 @@ class _CategoriesState extends State<Categories> {
                 },
               ),
             ],
-            backgroundColor: MaterialStateProperty.all(Color(0xFFFCFCFC)),
+            backgroundColor: MaterialStateProperty.all(const Color(0xFFFCFCFC)),
             shape: MaterialStateProperty.all(const ContinuousRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             )),
@@ -74,7 +73,7 @@ class _CategoriesState extends State<Categories> {
                       builder: (context) => Words(
                             categoryId: i.categoryId,
                           ),
-                      settings: RouteSettings()));
+                      settings: const RouteSettings()));
                 },
               );
             }).toList(),

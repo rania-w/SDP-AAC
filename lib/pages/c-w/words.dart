@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:aac/components/cards/word_card.dart';
 import 'package:aac/constants.dart';
 import 'package:aac/pages/detailed_item_view.dart';
@@ -14,9 +13,7 @@ class Words extends StatefulWidget {
 }
 
 class _WordsState extends State<Words> {
-  // Map data = {};
   List<dynamic> filtered = [];
-  // late var wordsFromBox = boxWord.values.toList();
   late var words = boxWord.values.where((element) {
     return widget.categoryId == element.categoryId;
   }).toList();
@@ -41,7 +38,7 @@ class _WordsState extends State<Words> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(boxCategory.get(widget.categoryId).title),
+      appBar: appBar(boxCategory.get(widget.categoryId).title, true),
       body: Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
@@ -53,7 +50,7 @@ class _WordsState extends State<Words> {
               controller: _searchController,
               hintText: "Kategorija ili riječ",
               hintStyle: MaterialStateProperty.all(
-                  TextStyle(color: grey, fontFamily: 'Light')),
+                  const TextStyle(color: grey, fontFamily: 'Light')),
               trailing: [
                 IconButton(
                   icon: const Icon(Icons.close),
@@ -65,7 +62,8 @@ class _WordsState extends State<Words> {
                   },
                 ),
               ],
-              backgroundColor: MaterialStateProperty.all(Color(0xFFFCFCFC)),
+              backgroundColor:
+                  MaterialStateProperty.all(const Color(0xFFFCFCFC)),
               shape: MaterialStateProperty.all(
                 const ContinuousRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -77,13 +75,14 @@ class _WordsState extends State<Words> {
             Column(
               children: filtered.map((e) {
                 return WordCard(
-                    word: e,
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => DetailedItemView(),
-                          settings:
-                              RouteSettings(arguments: {'wordId': e.wordId})));
-                    });
+                  word: e,
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const DetailedItemView(),
+                        settings:
+                            RouteSettings(arguments: {'wordId': e.wordId})));
+                  },
+                );
               }).toList(),
             ),
           ],

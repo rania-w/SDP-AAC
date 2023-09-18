@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:aac/constants.dart';
 import 'package:aac/pages/startup.dart';
 import 'package:aac/resources/a_a_c_icons_icons.dart';
@@ -24,15 +23,15 @@ class _HomeState extends State<Home> {
     data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
     if (data['index'] != null) currentPageIndex = data['index'];
     return boxCategory.isEmpty
-        ? Startup()
+        ? const Startup()
         : Scaffold(
-            appBar: appBar(''),
+            appBar: appBar('', false),
             body: Container(
                 // padding: EdgeInsets.all(20),
                 child: <Widget>[
-              Settings(),
-              Categories(),
-              SentenceBuilding(),
+              const Settings(),
+              const Categories(),
+              const SentenceBuilding(),
             ][currentPageIndex]),
             bottomNavigationBar: NavigationBar(
               onDestinationSelected: (int index) {
