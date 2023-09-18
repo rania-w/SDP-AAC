@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aac/objects/user.dart';
 import 'package:aac/objects/category.dart';
 import 'package:aac/objects/word.dart';
@@ -25,15 +23,7 @@ void main() async {
     boxCategory = await Hive.openBox<Category>('boxCategory');
     boxWord = await Hive.openBox<Word>('boxWord');
 
-    // temporary
-    // await boxCategory.clear();
-    // await boxUser.clear();
-    // await boxWord.clear();
-    // debugPrint("cleared");
-
     populate();
-    // debugPrint(boxCategory.values.toString());
-    // debugPrint(boxWord.values.toString());
   } catch (e) {
     debugPrint("hive exception: $e");
   }
@@ -43,7 +33,7 @@ void main() async {
   } catch (e) {
     debugPrint("tts exception: $e");
   }
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -55,9 +45,9 @@ class MyApp extends StatelessWidget {
       initialRoute: boxUser.isEmpty ? '/startup' : '/',
       // initialRoute: '/test',
       routes: {
-        '/startup': (context) => Startup(),
-        '/': (context) => Home(),
-        '/test': (context) => Test(),
+        '/startup': (context) => const Startup(),
+        '/': (context) => const Home(),
+        '/test': (context) => const Test(),
       },
     );
   }
