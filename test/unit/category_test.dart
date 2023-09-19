@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'package:aac/constants.dart';
 import 'package:aac/objects/category.dart';
+import 'package:aac/objects/word.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -47,6 +49,25 @@ void main() async {
       expect(testBox.isEmpty, false);
       testBox.put('test_key', updated);
       expect(testBox.get('test_key'), updated);
+    });
+
+    test('Set and retrieve words of category', () async {
+      testBox = await Hive.openBox<Category>('testBox');
+      Category? category = testBox.get('test_key');
+      expect([], category?.getWords);
+      List<Word> list = [
+        Word(
+            word: 'Word 1',
+            imageAsset: imageAsset,
+            categoryId: category!.categoryId),
+        Word(
+            word: 'Word 2',
+            imageAsset: imageAsset,
+            categoryId: category.categoryId)
+      ];
+      category.setWords = list;
+      testBox.put('test_key', category);
+      expect(list, testBox.get('test_key')!.getWords);
     });
 
     test('Deleting a category', () async {
