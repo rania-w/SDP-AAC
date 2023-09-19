@@ -90,11 +90,25 @@ class _EditCategoryState extends State<EditCategory> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
+                        Container(
+                          margin: EdgeInsets.only(bottom: 24),
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius: BorderRadius.circular(10.0),
+                            border: Border.all(color: grey, width: 2),
+                            boxShadow: [
+                              BoxShadow(
+                                color: grey
+                                    .withOpacity(0.5), // Set the shadow color
+                                spreadRadius: 2, // Set the spread radius
+                                blurRadius: 5, // Set the blur radius
+                                offset:
+                                    const Offset(0, 3), // Set the shadow offset
+                              ),
+                            ],
+                          ),
                           height: MediaQuery.of(context).size.height * 0.2,
                           width: MediaQuery.of(context).size.width * 0.77,
-
-                          /// il je do ovoga
                           child: ResponsiveGridList(
                             desiredItemWidth: 100,
                             children: images.entries.map((e) {
