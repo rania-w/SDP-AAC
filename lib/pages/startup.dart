@@ -50,11 +50,11 @@ class _StartupState extends State<Startup> {
                         builder: (context) => const Home(),
                       ));
                       boxUser.put(
-                          'user_key',
-                          User(
-                            nickname: nickname,
-                          ));
-                      debugPrint(boxUser.values.toString());
+                        'user_key',
+                        User(
+                          nickname: nickname,
+                        ),
+                      );
                     }
                   },
                   defaultColor: accent,

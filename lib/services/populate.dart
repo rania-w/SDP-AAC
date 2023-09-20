@@ -76,42 +76,42 @@ Word cao = Word(
 Word ja = Word(
     word: 'Ja',
     imageAsset: imageAsset,
-    sentences: ['Ćao, kako si?'],
+    sentences: [],
     categoryId: konverzacija.categoryId);
 Word ti = Word(
     word: 'Ti',
     imageAsset: imageAsset,
-    sentences: ['Ćao, kako si?'],
+    sentences: ['Kako se zoveš?'],
     categoryId: konverzacija.categoryId);
 Word da = Word(
     word: 'Da',
     imageAsset: images['yes']!,
-    sentences: ['Ćao, kako si?'],
+    sentences: ['Može.', 'Želim.'],
     categoryId: konverzacija.categoryId);
 Word ne = Word(
     word: 'Ne',
     imageAsset: images['no']!,
-    sentences: ['Ćao, kako si?'],
+    sentences: ['Ne može.', 'Ne želim.'],
     categoryId: konverzacija.categoryId);
 Word izvini = Word(
     word: 'Izvini',
     imageAsset: images['sorry']!,
-    sentences: ['Ćao, kako si?'],
+    sentences: ['Žao mi je'],
     categoryId: konverzacija.categoryId);
 Word ponovi = Word(
     word: "Ponovi",
     imageAsset: images['listening']!,
-    sentences: ['Ćao, kako si?'],
+    sentences: ['Možeš li ponoviti?'],
     categoryId: konverzacija.categoryId);
 Word upomoc = Word(
     word: 'Upomoć',
     imageAsset: images['help']!,
-    sentences: ['Ćao, kako si?'],
+    sentences: ['Možeš li mi pomoći?'],
     categoryId: konverzacija.categoryId);
 Word pogledaj = Word(
     word: 'Pogledaj',
     imageAsset: images['eye']!,
-    sentences: ['Ćao, kako si?'],
+    sentences: ['Pogledaj ovo!'],
     categoryId: konverzacija.categoryId);
 
 List<Word> konverzacijaWords = [
@@ -130,47 +130,47 @@ Word jabuka = Word(
     word: 'Jabuka',
     imageAsset: images['apple']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim jabuku.' 'Volim jabuke.']);
 Word sendvic = Word(
     word: 'Sendvič',
     imageAsset: images['sandwich']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim sendvič.' 'Volim sendviče.']);
 Word hljeb = Word(
     word: 'Hljeb',
     imageAsset: images['bread']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim hljeba.']);
 Word mlijeko = Word(
     word: 'Mlijeko',
     imageAsset: images['milk']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim mlijeko.' 'Volim mlijeko.']);
 Word secer = Word(
     word: 'Šećer',
     imageAsset: images['sugar']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim šećera.']);
 Word so = Word(
-    word: 'So',
+    word: 'Sol',
     imageAsset: images['salt']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim soli.']);
 Word meso = Word(
     word: 'Meso',
     imageAsset: images['meat']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim meso.' 'Volim meso.']);
 Word sir = Word(
     word: 'Sir',
     imageAsset: images['cheese']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim sir.' 'Volim sir.']);
 Word krompir = Word(
     word: 'Krompir',
     imageAsset: images['potato']!,
     categoryId: hrana.categoryId,
-    sentences: []);
+    sentences: ['Želim krompir.' 'Volim krompir.']);
 
 List<Word> hranaWords = [
   jabuka,
@@ -188,22 +188,22 @@ Word mama = Word(
     word: 'Mama',
     imageAsset: images['mom']!,
     categoryId: porodica.categoryId,
-    sentences: []);
+    sentences: ['Ovo je moja mama.', 'Volim svoju mamu.']);
 Word tata = Word(
     word: 'Tata',
     imageAsset: images['dad']!,
     categoryId: porodica.categoryId,
-    sentences: []);
+    sentences: ['Ovo je moj tata.', 'Volim svog tatu.']);
 Word brat = Word(
     word: 'Brat',
     imageAsset: images['boy']!,
     categoryId: porodica.categoryId,
-    sentences: []);
+    sentences: ['Ovo je moj brat.', 'Volim svog brata.']);
 Word sestra = Word(
     word: 'Sestra',
     imageAsset: images['girl']!,
     categoryId: porodica.categoryId,
-    sentences: []);
+    sentences: ['Ovo je moja sestra.', 'Volim svoju sestru.']);
 List<Word> porodicaWords = [mama, tata, brat, sestra];
 
 void populate() {

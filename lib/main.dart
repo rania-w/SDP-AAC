@@ -4,14 +4,11 @@ import 'package:aac/objects/word.dart';
 import 'package:aac/pages/startup.dart';
 import 'package:aac/services/populate.dart';
 import 'package:flutter/material.dart';
-import 'package:aac/pages/test.dart';
 import 'package:aac/pages/home.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'services/boxes.dart';
 import 'services/tts.dart';
-
-/// the logic of the object and its appearance are (re: should be) seperate files
 
 void main() async {
   try {
@@ -19,10 +16,6 @@ void main() async {
     Hive.registerAdapter(UserAdapter());
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(WordAdapter());
-
-    boxUser = await Hive.openBox<User>('boxUser');
-    boxCategory = await Hive.openBox<Category>('boxCategory');
-    boxWord = await Hive.openBox<Word>('boxWord');
 
     populate();
   } catch (e) {
@@ -47,11 +40,9 @@ class MyApp extends StatelessWidget {
       title: 'IzraziSe',
       debugShowCheckedModeBanner: false,
       initialRoute: boxUser.isEmpty ? '/startup' : '/',
-      // initialRoute: '/test',
       routes: {
         '/startup': (context) => const Startup(),
         '/': (context) => const Home(),
-        '/test': (context) => const Test(),
       },
     );
   }
