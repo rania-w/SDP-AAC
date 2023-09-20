@@ -27,6 +27,7 @@ void main() async {
           await path_provider.getApplicationDocumentsDirectory();
       await Hive.initFlutter(appDocumentDir.path);
       Hive.registerAdapter(CategoryAdapter());
+      Hive.registerAdapter(WordAdapter());
     });
 
     tearDownAll(() async {
