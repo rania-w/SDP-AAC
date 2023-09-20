@@ -6,6 +6,7 @@ import 'package:aac/services/populate.dart';
 import 'package:flutter/material.dart';
 import 'package:aac/pages/test.dart';
 import 'package:aac/pages/home.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'services/boxes.dart';
 import 'services/tts.dart';
@@ -33,6 +34,7 @@ void main() async {
   } catch (e) {
     debugPrint("tts exception: $e");
   }
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(const MyApp());
 }
 
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'IzraziSe',
+      debugShowCheckedModeBanner: false,
       initialRoute: boxUser.isEmpty ? '/startup' : '/',
       // initialRoute: '/test',
       routes: {

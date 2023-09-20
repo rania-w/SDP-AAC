@@ -20,7 +20,7 @@ class _DetailedItemViewState extends State<DetailedItemView> {
   Widget build(BuildContext context) {
     data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
     late var word = boxWord.get(data['wordId']);
-    late var sentences = word.sentences.toList();
+    late List<String>? sentences = word.sentences.toList();
     return Scaffold(
       appBar: appBar(word.word, true),
       body: Padding(
@@ -52,7 +52,7 @@ class _DetailedItemViewState extends State<DetailedItemView> {
               height: MediaQuery.of(context).size.height * 0.4,
               width: MediaQuery.of(context).size.width * 0.6,
               child: ListView(
-                children: sentences.isNotEmpty
+                children: sentences!.isNotEmpty
                     ? [
                         for (var i in word.sentences)
                           SentenceButton(sentence: i),
