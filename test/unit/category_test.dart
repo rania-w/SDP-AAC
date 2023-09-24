@@ -14,15 +14,17 @@ void main() async {
   late Box<Category> testBox;
 
   group('Test Hive box for categories', () {
+    /// Hive uses path_provider and needs a mock path for the testing environment
     setUpAll(() async {
+      // ignore: deprecated_member_use
       channel.setMockMethodCallHandler((MethodCall methodCall) async {
         if (methodCall.method == 'getApplicationDocumentsDirectory') {
-          return Directory.systemTemp.path; // Provide a mock path for testing
+          return Directory.systemTemp.path;
         }
         return null;
       });
 
-      // Initialize Hive for testing
+      /// Initialize Hive for testing
       final appDocumentDir =
           await path_provider.getApplicationDocumentsDirectory();
       await Hive.initFlutter(appDocumentDir.path);
