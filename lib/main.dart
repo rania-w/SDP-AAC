@@ -17,6 +17,10 @@ void main() async {
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(WordAdapter());
 
+    boxUser = await Hive.openBox<User>('boxUser');
+    boxCategory = await Hive.openBox<Category>('boxCategory');
+    boxWord = await Hive.openBox<Word>('boxWord');
+
     populate();
   } catch (e) {
     debugPrint("hive exception: $e");

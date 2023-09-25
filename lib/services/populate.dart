@@ -130,12 +130,12 @@ Word jabuka = Word(
     word: 'Jabuka',
     imageAsset: images['apple']!,
     categoryId: hrana.categoryId,
-    sentences: ['Želim jabuku.' 'Volim jabuke.']);
+    sentences: ['Želim jabuku.', 'Volim jabuke.']);
 Word sendvic = Word(
     word: 'Sendvič',
     imageAsset: images['sandwich']!,
     categoryId: hrana.categoryId,
-    sentences: ['Želim sendvič.' 'Volim sendviče.']);
+    sentences: ['Želim sendvič.', 'Volim sendviče.']);
 Word hljeb = Word(
     word: 'Hljeb',
     imageAsset: images['bread']!,
@@ -145,7 +145,7 @@ Word mlijeko = Word(
     word: 'Mlijeko',
     imageAsset: images['milk']!,
     categoryId: hrana.categoryId,
-    sentences: ['Želim mlijeko.' 'Volim mlijeko.']);
+    sentences: ['Želim mlijeko.', 'Volim mlijeko.']);
 Word secer = Word(
     word: 'Šećer',
     imageAsset: images['sugar']!,
@@ -160,17 +160,17 @@ Word meso = Word(
     word: 'Meso',
     imageAsset: images['meat']!,
     categoryId: hrana.categoryId,
-    sentences: ['Želim meso.' 'Volim meso.']);
+    sentences: ['Želim meso.', 'Volim meso.']);
 Word sir = Word(
     word: 'Sir',
     imageAsset: images['cheese']!,
     categoryId: hrana.categoryId,
-    sentences: ['Želim sir.' 'Volim sir.']);
+    sentences: ['Želim sir.', 'Volim sir.']);
 Word krompir = Word(
     word: 'Krompir',
     imageAsset: images['potato']!,
     categoryId: hrana.categoryId,
-    sentences: ['Želim krompir.' 'Volim krompir.']);
+    sentences: ['Želim krompir.', 'Volim krompir.']);
 
 List<Word> hranaWords = [
   jabuka,
