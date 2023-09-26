@@ -5,6 +5,7 @@ import 'package:aac/objects/word.dart';
 import 'package:aac/services/boxes.dart';
 import 'package:aac/services/tts.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SentenceBuilding extends StatefulWidget {
   const SentenceBuilding({super.key});
@@ -69,13 +70,15 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                             WordCard(
                               word: i,
                               onPressed: () {
+                                i.sentences ??= [];
                                 setState(
                                   () {
                                     i.sentences.add(_textController.text);
                                     temp = i;
                                   },
                                 );
-                                Navigator.of(context).pop();
+                                Fluttertoast.showToast(
+                                    msg: 'Uspješno ste dodali rečenicu!');
                               },
                             ),
                         ],
@@ -94,6 +97,7 @@ class _SentenceBuildingState extends State<SentenceBuilding> {
                       TextButton(
                         onPressed: () {
                           boxWord.put(temp!.wordId, temp);
+                          Navigator.of(context).pop();
                         },
                         child: Text(
                           'Spasi promjene',

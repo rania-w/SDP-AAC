@@ -81,7 +81,7 @@ class _AddCategoryState extends State<AddCategory> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(bottom: 24),
+                          margin: const EdgeInsets.only(bottom: 24),
                           decoration: BoxDecoration(
                             color: white,
                             borderRadius: BorderRadius.circular(10.0),
@@ -180,9 +180,10 @@ class _AddCategoryState extends State<AddCategory> {
                               boxCategory.put(category.categoryId, category);
                             }
                             Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const UDCategories()));
+                              MaterialPageRoute(
+                                builder: (context) => const UDCategories(),
+                              ),
+                            );
                           }
                         },
                         defaultColor: accent,

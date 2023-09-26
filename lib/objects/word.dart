@@ -14,6 +14,7 @@ class Word {
 
   @HiveField(2)
   List<String>? sentences;
+  set setSentences(List<String> sentences) => this.sentences = sentences;
 
   @HiveField(3)
   String wordId;
@@ -24,7 +25,7 @@ class Word {
   Word(
       {required this.word,
       required this.imageAsset,
-      this.sentences,
+      this.sentences = const [],
       required this.categoryId})
       : wordId = const Uuid().v4();
 }

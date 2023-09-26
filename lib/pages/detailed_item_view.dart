@@ -20,7 +20,14 @@ class _DetailedItemViewState extends State<DetailedItemView> {
   Widget build(BuildContext context) {
     data = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
     late var word = boxWord.get(data['wordId']);
-    late List<String>? sentences = word.sentences.toList();
+    late List<String>? sentences = [];
+
+    if (word.sentences != null) {
+      setState(() {
+        sentences = word.sentences.toList();
+      });
+    }
+
     return Scaffold(
       appBar: appBar(word.word, true),
       body: Padding(
